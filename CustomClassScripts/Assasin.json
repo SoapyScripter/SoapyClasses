@@ -3,13 +3,13 @@
     "DisplayName": "Assassin",
     "ClothingRowName": "Robber_Hoodie_Red",
     "AbilityName": "Cloak",
-    "AbilityDescription": "Turn invisible and get a speed boost for 5 seconds.",
-    "AbilityIcon": "AssassinAbility.png",
+    "AbilityDescription": "Turn invisible and get a speed boost for 3 seconds.",
+    "AbilityIcon": "",
     "AbilityCooldown": 5.0,
     "PassiveName": "HP Regeneration",
     "PassiveDescription": "Generates 1 HP every second.",
-    "PassiveIcon": "HpRegenerationIcon.png",
+    "PassiveIcon": "",
     "PrimaryWeapon": 1,
     "SecondaryWeapon": 2,
-    "ClassCategory": 1
+    "ClassCategory": 0
 }
