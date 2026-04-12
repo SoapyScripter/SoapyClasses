@@ -37,14 +37,12 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == "Assassin" then
         LogMessage("SERVER: Assassin cloaking!")
-            player.ActionComponent:SlowDownTimeSV(1.8)
         end
         -- Setting the .preventShooting variable of the player character class to true, so he can't fire while invisible
 		playerActor.preventShooting=true
         
         -- Starting a timer on the playerActor object so he will call LUA back in 5 seconds with the "AssassinUncloak" function
         SetTimer(5.0, "AssassinUncloak", playerActor)
-        player.ActionComponent:SlowDownTimeSV(1.0)
     end
 end)
 
@@ -52,7 +50,6 @@ end)
 ListenToEvent("AbilityALL_OnClient", function(playerActor)
     if playerActor.CustomClassString == "Assassin" then
         LogMessage("ALL CLIENTS: Assassin cloaking!")
-	--player.ActionComponent:SlowDownTimeSV(1.8)
         -- Setting the .Mesh of the playerActor to hidden on all clients. We don't want to set the whole player character hidden, since this logic is getting overwritten by the game code.
         playerActor.Mesh:SetHiddenIngame(true)
 
@@ -61,7 +58,6 @@ ListenToEvent("AbilityALL_OnClient", function(playerActor)
 
         SetTimer(5.0, "AssassinUncloak_ALL", playerActor)
 
-        player.ActionComponent:SlowDownTimeSV(1.5)
     end
 end)
 
