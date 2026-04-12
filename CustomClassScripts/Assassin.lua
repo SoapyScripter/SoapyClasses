@@ -39,7 +39,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == "Assassin" then
         LogMessage("SERVER: Assassin cloaking!")
-
+        player.ActionComponent:SlowDownTimeSV(1.8)
         -- Setting the .preventShooting variable of the player character class to true, so he can't fire while invisible
 		playerActor.preventShooting=true
         
@@ -61,7 +61,6 @@ ListenToEvent("AbilityALL_OnClient", function(playerActor)
 
         SetTimer(5.0, "AssassinUncloak_ALL", playerActor)
 
-        player.ActionComponent:SlowDownTimeSV(1.5)
     end
 end)
 

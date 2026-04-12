@@ -19,7 +19,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		
 		PlaySound(playerActor, "xrayeractivate.wav", 0.75)
 		GetGameState():ShowLuaImage("xrayersight", "xrayerblue.png", 0, 0, 10.0, 10000, 10000)
-		SetTimer(10.0, "XRayVisionOff", playerActor)
+		SetTimer(7.0, "XRayVisionOff", playerActor)
 	end
 end)
 
