@@ -35,7 +35,7 @@ ListenToEvent("RoundTick", function()
 			if player:GetReplicatedVar("KevlarVest") == "true" then
 				player.ActionComponent:SlowDownTimeSV(0)
 			else
-				player.ActionComponent:SlowDownTimeSV(1 + (0.125 * tonumber(player:GetReplicatedVar("KillStreak"))))
+				player.ActionComponent:SlowDownTimeSV(1 + ((1/16) * tonumber(player:GetReplicatedVar("KillStreak"))))
 			end
 		end
 	end
@@ -45,11 +45,11 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 	if target.PlayersName and source.PlayersName then
 		if source then
 			if source.CustomClassString == "ArmsMaster" then
-				target.HP = target.HP - ((damage/8) * tonumber(source:GetReplicatedVar("KillStreak")))
+				target.HP = target.HP - ((damage/16) * tonumber(source:GetReplicatedVar("KillStreak")))
 				if target.HP - damage <= 0 then
 					source:SetReplicatedVar("KillStreak", tostring(tonumber(source:GetReplicatedVar("KillStreak")) + 1))
-					if tonumber(source:GetReplicatedVar("KillStreak")) > 8 then
-						source:SetReplicatedVar("KillStreak", "8")
+					if tonumber(source:GetReplicatedVar("KillStreak")) > 16 then
+						source:SetReplicatedVar("KillStreak", "16")
 					end
 				end
 			end
@@ -58,7 +58,7 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 			if target:GetReplicatedVar("KevlarVest") == "true" then
 				target.HP = target.HP + damage
 			else
-				target.HP = target.HP + ((damage/9) * tonumber(target:GetReplicatedVar("KillStreak")))
+				target.HP = target.HP + ((damage/17) * tonumber(target:GetReplicatedVar("KillStreak")))
 				if target.HP - damage <= 0 then
 					target:SetReplicatedVar("KillStreak", "0")
 				end
