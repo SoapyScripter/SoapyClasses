@@ -1,4 +1,3 @@
-LogMessage("Loaded Assassin.lua")
 
 -- PASSIVE: Start HP regeneration when the round starts
 ListenToEvent("RoundStarted", function()
