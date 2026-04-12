@@ -31,20 +31,20 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
         -- Play a sound locally only for this player, so he knows he activated his ability
         PlaySound(playerActor, "disguiservanish.mp3")
 
-		-- Show a message at the top center of the player screens for 5 seconds
-		ShowUIText("InvisibilityNotification", "Invisible!", 0.5, 0.2, 5.0)	
     end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == "Assassin" then
         LogMessage("SERVER: Assassin cloaking!")
-        player.ActionComponent:SlowDownTimeSV(1.8)
+            player.ActionComponent:SlowDownTimeSV(1.8)
+        end
         -- Setting the .preventShooting variable of the player character class to true, so he can't fire while invisible
 		playerActor.preventShooting=true
         
         -- Starting a timer on the playerActor object so he will call LUA back in 5 seconds with the "AssassinUncloak" function
         SetTimer(5.0, "AssassinUncloak", playerActor)
+        player.ActionComponent:SlowDownTimeSV(1.0)
     end
 end)
 
@@ -61,6 +61,7 @@ ListenToEvent("AbilityALL_OnClient", function(playerActor)
 
         SetTimer(5.0, "AssassinUncloak_ALL", playerActor)
 
+        player.ActionComponent:SlowDownTimeSV(1.5)
     end
 end)
 
