@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Briber",
+    "ClothingRowName": "Customer_Jacket_Green",
+    "AbilityName": "Bribe",
+    "AbilityDescription": "Can bribe customers for $7,500 to move bomb bags, and can bribe employees for $15,000 to blow open vaults",
+    "AbilityIcon": "briberbribe.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Pickpocket",
+    "PassiveDescription": "Every enemy he kills drops $3,000",
+    "PassiveIcon": "briberpickpocket.png",
+    "PrimaryWeapon": 8,
+    "SecondaryWeapon": 36,
+    "ClassCategory": 2
+}

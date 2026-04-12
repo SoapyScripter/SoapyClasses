@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Undercover",
+    "ClothingRowName": "DEA_Female_4",
+    "AbilityName": "Witness Protection",
+    "AbilityDescription": "Can make the 3 closest NPCs disappear",
+    "AbilityIcon": "undercoverwitness.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Life Alert",
+    "PassiveDescription": "Get a ping everytime an NPC dies",
+    "PassiveIcon": "Undercoverlife.png",
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 23,
+    "ClassCategory": 2
+}

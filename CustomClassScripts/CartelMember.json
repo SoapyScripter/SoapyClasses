@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Cartel Member",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Backup",
+    "AbilityDescription": "Spawns 2 bot robbers",
+    "AbilityIcon": "cartelbackup.png",
+    "AbilityCooldown": 60.0,
+    "PassiveName": "Corrupt Cop",
+    "PassiveDescription": "Gets a new bot robber every enemy he kills",
+    "PassiveIcon": "cartelcorrupt.png",
+    "PrimaryWeapon": 17,
+    "SecondaryWeapon": 4,
+    "ClassCategory": 2
+}

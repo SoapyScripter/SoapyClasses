@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "X-Rayer",
+    "ClothingRowName": "DEA_Female_1",
+    "AbilityName": "X-Ray Vision",
+    "AbilityDescription": "Can hide all NPCs for 10 seconds, revealing all enemies",
+    "AbilityIcon": "xrayervision.png",
+    "AbilityCooldown": 35.0,
+    "PassiveName": "X-Ray Tagging",
+    "PassiveDescription": "After shooting an enemy she hides all NPCs for 5 seconds",
+    "PassiveIcon": "xrayertagging.png",
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 7,
+    "ClassCategory": 1
+}

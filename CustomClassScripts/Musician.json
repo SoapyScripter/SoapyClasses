@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Musician",
+    "ClothingRowName": "Spy_Female",
+    "AbilityName": "Trumpt",
+    "AbilityDescription": "Can play a song thats heals and resupplies ammo to her and nearby teammates",
+    "AbilityIcon": "musiciantrumpt.png",
+    "AbilityCooldown": 20.0,
+    "PassiveName": "Keen Ears",
+    "PassiveDescription": "Has a random chance to hear an enemies footsteps",
+    "PassiveIcon": "musiciankeen.png",
+    "PrimaryWeapon": 21,
+    "SecondaryWeapon": 33,
+    "ClassCategory": 2
+}

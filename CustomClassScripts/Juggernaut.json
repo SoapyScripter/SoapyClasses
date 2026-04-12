@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Juggernaut",
+    "ClothingRowName": "DEA_Male_4",
+    "AbilityName": "Full Metal Jacket",
+    "AbilityDescription": "Can use full metal jackets bullets for 15 seconds, doing 200% more damage then regular bullets",
+    "AbilityIcon": "juggernautfmj.png",
+    "AbilityCooldown": 35.0,
+    "PassiveName": "Infinite Ammo",
+    "PassiveDescription": "Has an infinite amount of ammo but is 25% slower",
+    "PassiveIcon": "juggernautammo.png",
+    "PrimaryWeapon": 1,
+    "SecondaryWeapon": 10,
+    "ClassCategory": 0
+}

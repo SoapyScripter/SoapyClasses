@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Techincian",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Bomb Time",
+    "AbilityDescription": "Spawns an extra bomb bag but pings the cops when he does.",
+    "AbilityIcon": "techincianbomb.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Unlocked",
+    "PassiveDescription": "Can open any door.",
+    "PassiveIcon": "techincianlock.png",
+    "PrimaryWeapon": 15,
+    "SecondaryWeapon": 18,
+    "ClassCategory": 0
+}

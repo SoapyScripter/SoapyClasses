@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Witch",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Potions",
+    "AbilityDescription": "Can use multiple different potions",
+    "AbilityIcon": "witchpotions.png",
+    "AbilityCooldown": 0.0,
+    "PassiveName": "Lifesteal",
+    "PassiveDescription": "Recives 50% of all damage you deal",
+    "PassiveIcon": "witchlifesteal.png",
+    "PrimaryWeapon": 32,
+    "SecondaryWeapon": 33,
+    "ClassCategory": 0
+}

@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Streamer",
+    "ClothingRowName": "Spy_Male",
+    "AbilityName": "Stream",
+    "AbilityDescription": "Can begin streamming on up to 5 computers, and anytime an enemy comes close they donate a bit of money",
+    "AbilityIcon": "streamerstream.png",
+    "AbilityCooldown": 15.0,
+    "PassiveName": "Twitch Tax",
+    "PassiveDescription": "Robbers need to steal an extra 10,000 to win",
+    "PassiveIcon": "streamertwitch.png",
+    "PrimaryWeapon": 15,
+    "SecondaryWeapon": 7,
+    "ClassCategory": 1
+}
