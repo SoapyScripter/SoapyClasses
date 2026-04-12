@@ -49,7 +49,7 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 				if target.HP - damage <= 0 then
 					source:SetReplicatedVar("KillStreak", tostring(tonumber(source:GetReplicatedVar("KillStreak")) + 1))
 					if tonumber(source:GetReplicatedVar("KillStreak")) > 8 then
-						source:SetReplicatedVar("KillStreak", 8)
+						source:SetReplicatedVar("KillStreak", "8")
 					end
 				end
 			end
@@ -60,7 +60,7 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 			else
 				target.HP = target.HP + ((damage/9) * tonumber(target:GetReplicatedVar("KillStreak")))
 				if target.HP - damage <= 0 then
-					target:SetReplicatedVar("KillStreak", 0)
+					target:SetReplicatedVar("KillStreak", "0")
 				end
 			end
 		end
