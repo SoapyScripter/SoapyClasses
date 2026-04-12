@@ -5,11 +5,11 @@
     "AbilityName": "Cloak",
     "AbilityDescription": "Turn invisible and get a speed boost for 3 seconds.",
     "AbilityIcon": "",
-    "AbilityCooldown": 5.0,
+    "AbilityCooldown": 25.0,
     "PassiveName": "HP Regeneration",
     "PassiveDescription": "Generates 1 HP every second.",
     "PassiveIcon": "",
-    "PrimaryWeapon": 1,
-    "SecondaryWeapon": 2,
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 12,
     "ClassCategory": 0
 }
