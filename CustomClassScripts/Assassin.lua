@@ -53,7 +53,7 @@ end)
 ListenToEvent("AbilityALL_OnClient", function(playerActor)
     if playerActor.CustomClassString == "Assassin" then
         LogMessage("ALL CLIENTS: Assassin cloaking!")
-	player.ActionComponent:SlowDownTimeSV(1.8)
+	--player.ActionComponent:SlowDownTimeSV(1.8)
         -- Setting the .Mesh of the playerActor to hidden on all clients. We don't want to set the whole player character hidden, since this logic is getting overwritten by the game code.
         playerActor.Mesh:SetHiddenIngame(true)
 
