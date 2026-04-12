@@ -11,5 +11,5 @@
     "PassiveIcon": "HpRegenerationIcon.png",
     "PrimaryWeapon": 1,
     "SecondaryWeapon": 2,
-    "ClassCategory": 0
+    "ClassCategory": 1
 }
