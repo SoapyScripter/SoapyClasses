@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Goon Master",
+    "ClothingRowName": "Customer_Jacket_Red",
+    "AbilityName": "Ping Cops",
+    "AbilityDescription": "Pings location of cops.",
+    "AbilityIcon": "",
+    "AbilityCooldown": 10.0,
+    "PassiveName": "Double Damage",
+    "PassiveDescription": "2x gooning speed = 2x damage to cops",
+    "PassiveIcon": "",
+    "PrimaryWeapon": 6,
+    "SecondaryWeapon": 12,
+    "ClassCategory": 0
+}

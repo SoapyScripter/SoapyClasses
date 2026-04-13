@@ -4,7 +4,7 @@ ListenToEvent("RoundTick", function()
 			if ActorHasTag(player, "SuperSerum") then
 				player.ActionComponent:SlowDownTimeSV(1.8)
 			else
-				player.ActionComponent:SlowDownTimeSV(0.8)
+				player.ActionComponent:SlowDownTimeSV(0.85)
 			end
 			GetGameState().hackedPCs = 0
 			if GetGameState().cryptoPCs > 3 then
