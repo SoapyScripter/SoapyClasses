@@ -1,3 +1,5 @@
+local classname = "Streamer"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -9,7 +11,7 @@ end
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
-        if player.CustomClassString == "Streamer" then
+        if player.CustomClassString == classname then
             SetTimer(5.0, "StreamerDono", player)
 			GetGameState().requiredSavedMoney = GetGameState().requiredSavedMoney + 10000
         end
@@ -36,19 +38,19 @@ ListenToEvent("StreamerDono", function(playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Streamer" then
+	if playerActor.CustomClassString == classname then
 		playerActor:AbilitySV()
 	end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "Streamer" then
+	if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
 		local closest = GetClosestActor("HackablePC", plrpos)
 		local numofstreamers = 0
 		
 		for i, player in ipairs(GetPlayerChars()) do
-			if player.CustomClassString == "Streamer" then
+			if player.CustomClassString == classname then
 				numofstreamers = numofstreamers + 1
 			end
 		end

@@ -1,9 +1,10 @@
+local classname = "Assassin"
 
 -- PASSIVE: Start HP regeneration when the round starts
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
-        if player.CustomClassString == "Assassin" then
+        if player.CustomClassString == classname then
             SetTimer(1.0, "AssassinPassiveHeal", player)
             LogMessage("Assassin passive started for " .. GetActorName(player))
         end
@@ -20,7 +21,7 @@ ListenToEvent("AssassinPassiveHeal", function(playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-    if playerActor.CustomClassString == "Assassin" then
+    if playerActor.CustomClassString == classname then
         LogMessage("CLIENT: Assassin cloaking!")
 
         playerActor:StartAbilityCooldown(6.0)
@@ -35,7 +36,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-    if playerActor.CustomClassString == "Assassin" then
+    if playerActor.CustomClassString == classname then
         LogMessage("SERVER: Assassin cloaking!")
         end
         -- Setting the .preventShooting variable of the player character class to true, so he can't fire while invisible
@@ -48,7 +49,7 @@ end)
 
 -- When AbilitySV gets called on the server, Ability_ALL gets called for all clients
 ListenToEvent("AbilityALL_OnClient", function(playerActor)
-    if playerActor.CustomClassString == "Assassin" then
+    if playerActor.CustomClassString == classname then
         LogMessage("ALL CLIENTS: Assassin cloaking!")
         -- Setting the .Mesh of the playerActor to hidden on all clients. We don't want to set the whole player character hidden, since this logic is getting overwritten by the game code.
         playerActor.Mesh:SetHiddenIngame(true)

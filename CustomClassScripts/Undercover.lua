@@ -1,3 +1,5 @@
+local classname = "Undercover"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -6,7 +8,7 @@ local function GetDistance(actor1, actor2)
 end
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Undercover" then
+	if playerActor.CustomClassString == classname then
 		playerActor:startAbilityCooldown(45.0)
 		
 		playerActor:AbilitySV()
@@ -14,7 +16,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "Undercover" then
+	if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
 		for i=1,3 do
 			local closestcustomer = GetClosestActor("AI_Customer", plrpos)
@@ -45,7 +47,7 @@ ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor, damage)
 	local cop = nil
 	for i,player in ipairs(GetPlayerChars()) do
 		if player.robber == false then
-			if player.CustomClassString == "Undercover" then
+			if player.CustomClassString == classname then
 				cop = player
 			end
 			break

@@ -1,3 +1,5 @@
+local classname = "Witch"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -6,7 +8,7 @@ local function GetDistance(actor1, actor2)
 end
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Witch" then
+	if playerActor.CustomClassString == classname then
 		StartPieMenu(playerActor, {
             {Name = "Poison Potion",    Description = "Makes a lingering pool that damages enimes.",    Icon = "WitchPoisonPotion.png"},
             {Name = "Revive Potion",   Description = "Revives the nearest dead teammate.",   Icon = "WitchRevivePotion.png"},
@@ -17,7 +19,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 end)
 
 ListenToEvent("PieMenuSelected_OnClient", function(playerActor, selectedIndex)
-    if playerActor.CustomClassString == "Witch" then
+    if playerActor.CustomClassString == classname then
         if selectedIndex == 0 then
             SpawnLuaActor("LingeringPoison.lua", playerActor:GetActorLocation())
 			playerActor:startAbilityCooldown(60.0)
@@ -42,7 +44,7 @@ end)
 
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
 	if target.PlayersName and source.PlayersName then
-		if source.CustomClassString == "Witch" then
+		if source.CustomClassString == classname then
 			if source.HP + math.ceil(damage/2) > 100 then
 				source.HP = 100
 			else

@@ -1,3 +1,5 @@
+local classname = "Disguiser"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -8,7 +10,7 @@ end
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
-        if player.CustomClassString == "Disguiser" then
+        if player.CustomClassString == classname then
             SetTimer(1.0, "DisguiserPassive", player)
         end
     end
@@ -22,7 +24,7 @@ ListenToEvent("DisguiserPassive", function(playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Disguiser" then
+	if playerActor.CustomClassString == classname then
 		playerActor:startAbilityCooldown(30.0)
 		
 		playerActor:AbilitySV()
@@ -30,7 +32,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "Disguiser" then
+	if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
 		local closestcustomer = GetClosestActor("AI_Customer", plrpos)
 		local closestemployee = GetClosestActor("AI_Employee", plrpos)

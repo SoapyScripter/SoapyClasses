@@ -1,13 +1,15 @@
+local classname = "ArmsMaster"
+
 ListenToEvent("RoundStarted", function()
 	for i, player in ipairs(GetPlayerChars()) do
-		if player.CustomClassString == "ArmsMaster" then
+		if player.CustomClassString == classname then
 			player:SetReplicatedVar("KillStreak", "0")
 		end
 	end
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "ArmsMaster" then
+	if playerActor.CustomClassString == classname then
 		playerActor:startAbilityCooldown(25.0)
 		
 		playerActor:AbilitySV()
@@ -15,7 +17,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "ArmsMaster" then
+	if playerActor.CustomClassString == classname then
 		playerActor:SetReplicatedVar("KevlarVest", "true")
 		playerActor.preventShooting = true
 		
@@ -31,7 +33,7 @@ end)
 
 ListenToEvent("RoundTick", function()
 	for i, player in ipairs(GetPlayerChars()) do
-		if player.CustomClassString == "ArmsMaster" then
+		if player.CustomClassString == classname then
 			if player:GetReplicatedVar("KevlarVest") == "true" then
 				player.ActionComponent:SlowDownTimeSV(0)
 			else
@@ -44,7 +46,7 @@ end)
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
 	if target.PlayersName and source.PlayersName then
 		if source then
-			if source.CustomClassString == "ArmsMaster" then
+			if source.CustomClassString == classname then
 				target.HP = target.HP - ((damage/16) * tonumber(source:GetReplicatedVar("KillStreak")))
 				if target.HP - damage <= 0 then
 					source:SetReplicatedVar("KillStreak", tostring(tonumber(source:GetReplicatedVar("KillStreak")) + 1))
@@ -54,7 +56,7 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 				end
 			end
 		end
-		if target.CustomClassString == "ArmsMaster" then
+		if target.CustomClassString == classname then
 			if target:GetReplicatedVar("KevlarVest") == "true" then
 				target.HP = target.HP + damage
 			else

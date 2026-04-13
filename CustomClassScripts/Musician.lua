@@ -1,3 +1,5 @@
+local classname = "Musician"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -8,7 +10,7 @@ end
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
-        if player.CustomClassString == "Musician" then
+        if player.CustomClassString == classnamethen
             SetTimer(5.0, "MusicianKeen", player)
         end
     end
@@ -26,14 +28,14 @@ ListenToEvent("MusicianKeen", function(playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Musician" then
+	if playerActor.CustomClassString == classnamethen
 		playerActor:StartAbilityCooldown(20.0)
 		playerActor:AbilitySV()
 	end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "Musician" then
+	if playerActor.CustomClassString == classnamethen
 		PlaySound(playerActor, "musiciansong.mp3", 0.75)
 		for i, player in ipairs(GetPlayerChars()) do
 			if player.robber == false then

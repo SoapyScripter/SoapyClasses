@@ -1,3 +1,5 @@
+local classname = "Briber"
+
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
     local b = actor2:GetActorLocation()
@@ -54,7 +56,7 @@ ListenToEvent("CheckBombBagAI", function(ai)
 		GetGameState():LuaDestroyActor(bombBag)
 		AddActorTag(ai, "HasBombBag")
 		for i,player in ipairs(GetPlayerChars()) do
-			if player.CustomClassString == "Briber" then
+			if player.CustomClassString == classname then
 				ai:OverwriteMovementTarget(player:GetActorLocation(), 1.0)
 				SetTimer(1.0, "CheckPlayerAI", ai)
 				break
@@ -68,7 +70,7 @@ end)
 ListenToEvent("CheckPlayerAI", function(ai)
 	local player = nil
 	for i,playerv in ipairs(GetPlayerChars()) do
-		if playerv.CustomClassString == "Briber" then
+		if playerv.CustomClassString == classname then
 			player = playerv
 			break
 		end
@@ -86,13 +88,13 @@ end)
 
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "Briber" then
+	if playerActor.CustomClassString == classname then
 		playerActor:AbilitySV()
 	end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == "Briber" then
+	if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
 		local closestcustomer = GetClosestActor("AI_Customer", plrpos)
 		local closestemployee = GetClosestActor("AI_Employee", plrpos)
@@ -120,7 +122,7 @@ ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor, damage)
 	end
 	if sourceActor then
 		if targetActor.HP - damage <= 0 then
-			if sourceActor.CustomClassString == "Briber" and targetActor.PlayersName then
+			if sourceActor.CustomClassString == classname and targetActor.PlayersName then
 				SpawnActor("MoneyBag", targetActor:GetActorLocation(), "FreshSpawnBriber")
 				for i,v in ipairs(GetAllActorsWithTag("FreshSpawnBriber")) do
 					v.moneyValue = 3000

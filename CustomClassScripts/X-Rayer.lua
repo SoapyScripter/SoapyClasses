@@ -1,5 +1,7 @@
+local classname = "X-Rayer"
+
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == "X-Rayer" then
+	if playerActor.CustomClassString == classname then
 		playerActor:startAbilityCooldown(35.0)
 		
 		local customers = GetAllActorsOfClass("AI_Customer")
@@ -42,7 +44,7 @@ end)
 
 ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor)
 	if sourceActor then
-		if sourceActor.CustomClassString == "X-Rayer" then
+		if sourceActor.CustomClassString == classname then
 			local customers = GetAllActorsOfClass("AI_Customer")
 			local employees = GetAllActorsOfClass("AI_Employee")
 			local chars = {}	
