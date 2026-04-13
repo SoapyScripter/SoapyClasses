@@ -7,9 +7,9 @@
     "AbilityIcon": "juggernautfmj.png",
     "AbilityCooldown": 35.0,
     "PassiveName": "Infinite Ammo",
-    "PassiveDescription": "Has an infinite amount of ammo but is 25% slower",
+    "PassiveDescription": "Has an infinite ammo and has 25% damage resistance",
     "PassiveIcon": "juggernautammo.png",
-    "PrimaryWeapon": 1,
-    "SecondaryWeapon": 10,
+    "PrimaryWeapon": 16,
+    "SecondaryWeapon": 20,
     "ClassCategory": 0
 }

@@ -9,7 +9,7 @@
     "PassiveName": "Firewall",
     "PassiveDescription": "Can stop Tech from hacking computers, and can limit Crypto to only hacking three",
     "PassiveIcon": "biohackerfirewall.png",
-    "PrimaryWeapon": 25,
+    "PrimaryWeapon": 2,
     "SecondaryWeapon": 4,
     "ClassCategory": 0
 }

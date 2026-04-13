@@ -9,7 +9,7 @@
     "PassiveName": "Everlasting",
     "PassiveDescription": "The higher the killstreak he has the stronger and faster he is",
     "PassiveIcon": "armsmastereverlasting.png",
-    "PrimaryWeapon": 20,
+    "PrimaryWeapon": 6,
     "SecondaryWeapon": 12,
     "ClassCategory": 0
 }

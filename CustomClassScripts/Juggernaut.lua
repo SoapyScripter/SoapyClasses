@@ -41,8 +41,11 @@ ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor, damage)
 	if sourceActor then
 		if sourceActor.CustomClassString == "Juggernaut" then
 			if sourceActor:GetReplicatedVar("FMJ") == "true" then
-				targetActor.HP = targetActor.HP - (damage * 2)
+				targetActor.HP = targetActor.HP - (damage)
 			end
 		end
+	end
+	if targetActor.CustomClassString == "Juggernaut" then
+		targetActor.HP = targetActor.HP + math.ceil(damage/4)
 	end
 end)
