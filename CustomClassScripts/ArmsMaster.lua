@@ -10,7 +10,7 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:startAbilityCooldown(25.0)
+		playerActor:startAbilityCooldown(15.0)
 		
 		playerActor:AbilitySV()
 	end
@@ -18,27 +18,21 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:SetReplicatedVar("KevlarVest", "true")
-		playerActor.preventShooting = true
-		
-		SetTimer(10.0, "KevlarVestOff",playerActor)
+		local maxkillstreakmoney = math.floor(playerActor.ActionComponent.MoneyAmount/2000)
+		if (tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney) > 16 then
+			maxkillstreakmoney = 16 - tonumber(playerActor:GetReplicatedVar("KillStreak"))
+		end
+		if maxkillstreakmoney >= 1 then
+			playerActor.ActionComponent.MoneyAmount = playerActor.ActionComponent.MoneyAmount - (maxkillstreakmoney*2000)
+			playerActor:SetReplicatedVar("KillStreak", tostring(maxkillstreakmoney))
+		end
 	end
-end)
-
-ListenToEvent("KevlarVestOff", function(playerActor)
-	playerActor:SetReplicatedVar("KevlarVest", "false")
-	playerActor.preventShooting = false
-	playerActor.ActionComponent:SlowDownTimeSV(1)
 end)
 
 ListenToEvent("RoundTick", function()
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
-			if player:GetReplicatedVar("KevlarVest") == "true" then
-				player.ActionComponent:SlowDownTimeSV(0)
-			else
-				player.ActionComponent:SlowDownTimeSV(1 + ((1/16) * tonumber(player:GetReplicatedVar("KillStreak"))))
-			end
+			player.ActionComponent:SlowDownTimeSV(1 + ((1/16) * tonumber(player:GetReplicatedVar("KillStreak"))))
 		end
 	end
 end)
@@ -57,13 +51,9 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 			end
 		end
 		if target.CustomClassString == classname then
-			if target:GetReplicatedVar("KevlarVest") == "true" then
-				target.HP = target.HP + damage
-			else
-				target.HP = target.HP + ((damage/17) * tonumber(target:GetReplicatedVar("KillStreak")))
-				if target.HP - damage <= 0 then
-					target:SetReplicatedVar("KillStreak", "0")
-				end
+			target.HP = target.HP + ((damage/17) * tonumber(target:GetReplicatedVar("KillStreak")))
+			if target.HP - damage <= 0 then
+				target:SetReplicatedVar("KillStreak", "0")
 			end
 		end
 	end

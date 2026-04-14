@@ -10,7 +10,7 @@ end
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
-        if player.CustomClassString == classnamethen
+        if player.CustomClassString == classname then
             SetTimer(5.0, "MusicianKeen", player)
         end
     end
@@ -28,14 +28,14 @@ ListenToEvent("MusicianKeen", function(playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
-	if playerActor.CustomClassString == classnamethen
+	if playerActor.CustomClassString == classname then
 		playerActor:StartAbilityCooldown(20.0)
 		playerActor:AbilitySV()
 	end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
-	if playerActor.CustomClassString == classnamethen
+	if playerActor.CustomClassString == classname then
 		PlaySound(playerActor, "musiciansong.mp3", 0.75)
 		for i, player in ipairs(GetPlayerChars()) do
 			if player.robber == false then
