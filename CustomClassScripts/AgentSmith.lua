@@ -10,21 +10,21 @@ end
 ListenToEvent("RoundStarted", function()
     for i, player in ipairs(GetPlayerChars()) do
         if player.CustomClassString == classname then
-            SetTimer(2.0, "AgentSmithCheckCameras", player)
+            SetTimer(45.0, "AgentSmithSixthSense", player)
         end
     end
 end)
 
-ListenToEvent("AgentSmithCheckCameras", function(playerActor)
-    if playerActor.inCCTV == true then
-        for i, player in ipairs(playerActor.ActionComponent.CurrentCCTV.players) do
-            if player.robber == false then
+ListenToEvent("AgentSmithSixthSense", function(playerActor)
+    for i, player in ipairs(GetPlayerChars()) do
+        if player.robber == true then
+            if player.ActionComponent.moneyAmount > 0 then
                 GetGameState():SpawnLuaPingSV("agentsmithsixth.png", player:GetActorLocation(), playerActor)
             end
         end
     end
 
-    SetTimer(2.0, "AgentSmithCheckCameras", playerActor)
+    SetTimer(45.0, "AgentSmithSixthSense", playerActor)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
@@ -38,7 +38,7 @@ ListenToEvent("AbilitySV", function(playerActor)
         if playerActor.ActionComponent.lastCCTV then
             playerActor:startAbilityCooldown(45.0)
 
-            SetTimer(3.0, "AgentSmithCameraWarp", playerActor)
+            SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
         end
     end
 end)

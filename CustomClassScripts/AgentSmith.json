@@ -7,7 +7,7 @@
     "AbilityIcon": "agentsmithcamera.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "6th Sense",
-    "PassiveDescription": "Pings the location of robbers on cameras if your looking at camera every 45 seconds",
+    "PassiveDescription": "Pings the location of any robber with a money bag every 45 seconds",
     "PassiveIcon": "agentsmithsixth.png",
     "PrimaryWeapon": 20,
     "SecondaryWeapon": 24,

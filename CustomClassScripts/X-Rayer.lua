@@ -19,7 +19,9 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		end
 		
 		for i, character in ipairs(chars) do
-			character.Mesh:SetHiddenIngame(true)
+			if 1%2 == 0 then
+				character.Mesh:SetHiddenIngame(true)
+			end
 		end
 		
 		PlaySound(playerActor, "xrayeractivate.wav", 0.75)
@@ -52,11 +54,12 @@ ListenToEvent("XRayVisionOff", function(playerActor)
 	playerActor.preventShooting = false
 end)
 
-ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor)
+ListenToEvent("PreReceiveDamage_OnClient", function(targetActor, sourceActor)
 	if sourceActor then
 		if sourceActor.CustomClassString == classname then
 			local customers = GetAllActorsOfClass("AI_Customer")
 			local employees = GetAllActorsOfClass("AI_Employee")
+			local cooks = GetAllActorsOfClass("AI_KitchenStaff")
 			local chars = {}	
 				
 			for i, customer in ipairs(customers) do
@@ -64,6 +67,9 @@ ListenToEvent("PreReceiveDamage", function(targetActor, sourceActor)
 			end
 			for i, employee in ipairs(employees) do
 				table.insert(chars,employee)
+			end
+			for i, cook in ipairs(cooks) do
+				table.insert(chars,cook)
 			end
 			
 			for i, character in ipairs(chars) do
