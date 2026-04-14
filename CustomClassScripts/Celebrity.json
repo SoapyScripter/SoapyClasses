@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Celebrity",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Famous",
+    "AbilityDescription": "Can have NPCs hoard around him for 15 seconds",
+    "AbilityIcon": "celebrityfamous.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Paparazzi",
+    "PassiveDescription": "Recives $1,000 everytime he is looked at on cameras with a 10 seconds cooldown",
+    "PassiveIcon": "celebritypaparazzi.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 14,
+    "ClassCategory": 2
+}
