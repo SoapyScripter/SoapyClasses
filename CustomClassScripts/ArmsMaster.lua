@@ -51,6 +51,9 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 			end
 		end
 		if target.CustomClassString == classname then
+			if tonumber(source:GetReplicatedVar("KillStreak")) > 16 then
+				source:SetReplicatedVar("KillStreak", "16")
+			end
 			target.HP = target.HP + ((damage/17) * tonumber(target:GetReplicatedVar("KillStreak")))
 			if target.HP - damage <= 0 then
 				target:SetReplicatedVar("KillStreak", "0")
