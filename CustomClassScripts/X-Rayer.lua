@@ -2,12 +2,7 @@ local classname = "X-Rayer"
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-<<<<<<< HEAD
 		playerActor:startAbilityCooldown(40.0)
-=======
-		playerActor:startAbilityCooldown(45.0)
->>>>>>> 04e89beebb48a98e12d09ca3b173dfe579369598
-		
 		local customers = GetAllActorsOfClass("AI_Customer")
 		local employees = GetAllActorsOfClass("AI_Employee")
 		local cooks = GetAllActorsOfClass("AI_KitchenStaff")
