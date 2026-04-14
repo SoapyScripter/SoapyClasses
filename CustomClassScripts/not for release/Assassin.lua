@@ -50,11 +50,8 @@ end)
 -- When AbilitySV gets called on the server, Ability_ALL gets called for all clients
 ListenToEvent("AbilityALL_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        LogMessage("ALL CLIENTS: Assassin cloaking!")
-        -- Setting the .Mesh of the playerActor to hidden on all clients. We don't want to set the whole player character hidden, since this logic is getting overwritten by the game code.
         playerActor.Mesh:SetHiddenIngame(true)
 
-        -- Setting his FP_Arms (the first-person view model) to hidden as well, so the player who used the ability can see something happen on his screen for additional feedback
 		playerActor.FP_Arms:SetHiddenIngame(true)
 
         SetTimer(5.0, "AssassinUncloak_ALL", playerActor)
@@ -62,13 +59,13 @@ ListenToEvent("AbilityALL_OnClient", function(playerActor)
     end
 end)
 
+-- AssassinUncloak Client
 ListenToEvent("AssassinUncloak", function(playerActor)
 	playerActor.preventShooting=false
-    LogMessage("SERVER: Assassin visible again!")
 end)
 
+-- AssassinUncloak Server
 ListenToEvent("AssassinUncloak_ALL", function(playerActor)
     playerActor.Mesh:SetHiddenIngame(false)
 	playerActor.FP_Arms:SetHiddenIngame(false)
-    LogMessage("ALL CLIENTS: Assassin visible again!")
 end)
