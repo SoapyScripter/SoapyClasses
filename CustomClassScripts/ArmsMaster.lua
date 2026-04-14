@@ -10,8 +10,6 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:startAbilityCooldown(15.0)
-		
 		playerActor:AbilitySV()
 	end
 end)
@@ -23,8 +21,9 @@ ListenToEvent("AbilitySV", function(playerActor)
 			maxkillstreakmoney = 16 - tonumber(playerActor:GetReplicatedVar("KillStreak"))
 		end
 		if maxkillstreakmoney >= 1 then
+			playerActor:startAbilityCooldown(15.0)
 			playerActor.ActionComponent.MoneyAmount = playerActor.ActionComponent.MoneyAmount - (maxkillstreakmoney*2000)
-			playerActor:SetReplicatedVar("KillStreak", tostring(maxkillstreakmoney))
+			playerActor:SetReplicatedVar("KillStreak", tostring(tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney))
 		end
 	end
 end)
