@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Agent Smaith",
+    "ClothingRowName": "Employee_RedTie",
+    "AbilityName": "Camera Warp",
+    "AbilityDescription": "Can teleport through cameras",
+    "AbilityIcon": "",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "6th Sense",
+    "PassiveDescription": "Pings the general location of the closest robber every 45 seconds",
+    "PassiveIcon": "",
+    "PrimaryWeapon": 20,
+    "SecondaryWeapon": 24,
+    "ClassCategory": 0
+}
