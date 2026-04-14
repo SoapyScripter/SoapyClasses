@@ -1,15 +1,15 @@
 {
     "IsRobber": false,
-    "DisplayName": "Agent Smaith",
+    "DisplayName": "Agent Smith",
     "ClothingRowName": "Employee_RedTie",
     "AbilityName": "Camera Warp",
     "AbilityDescription": "Can teleport through cameras",
-    "AbilityIcon": "",
+    "AbilityIcon": "agentsmithcamera.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "6th Sense",
-    "PassiveDescription": "Pings the general location of the closest robber every 45 seconds",
-    "PassiveIcon": "",
+    "PassiveDescription": "Pings the location of robbers on cameras if your looking at camera every 45 seconds",
+    "PassiveIcon": "agentsmithsixth.png",
     "PrimaryWeapon": 20,
     "SecondaryWeapon": 24,
-    "ClassCategory": 0
+    "ClassCategory": 2
 }

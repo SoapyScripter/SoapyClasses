@@ -18,7 +18,7 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:startAbilityCooldown(90.0)
+		playerActor:startAbilityCooldown(60.0)
 		playerActor:AbilitySV()
 	end
 end)
@@ -27,7 +27,7 @@ ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
 		AddActorTag(playerActor, "SuperSerum")
 		PlaySound(playerActor, "superserum.mp3", 1)
-		SetTimer(10.0, "EndSuperSerum", playerActor)
+		SetTimer(15.0, "EndSuperSerum", playerActor)
 	end
 end)
 
