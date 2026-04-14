@@ -1,3 +1,5 @@
+--[[
+
 local classname = "Assassin"
 
 -- PASSIVE: Start HP regeneration when the round starts
@@ -69,3 +71,4 @@ ListenToEvent("AssassinUncloak_ALL", function(playerActor)
     playerActor.Mesh:SetHiddenIngame(false)
 	playerActor.FP_Arms:SetHiddenIngame(false)
 end)
+]]
