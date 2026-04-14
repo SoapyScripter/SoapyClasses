@@ -34,7 +34,6 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 
     end
 end)
-end
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
