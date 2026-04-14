@@ -26,7 +26,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
 		AddActorTag(playerActor, "SuperSerum")
-		PlaySound(playerActor, "superserum.ogg", 1)
+		PlaySound(playerActor, "superserum.mp3", 1)
 		SetTimer(15.0, "EndSuperSerum", playerActor)
 	end
 end)
