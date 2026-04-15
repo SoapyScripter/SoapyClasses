@@ -51,6 +51,7 @@ ListenToEvent("AbilitySV", function(playerActor)
 		end
 		
 		if closest then
+			LogMessage(closest.ClothingID)
 			playerActor.ActionComponent:DropMoneyBagSV({X=0,Y=0,Z=0})
 			playerActor.ActionComponent:DropBombBagSV({X=0,Y=0,Z=0})
 			PlaySound(playerActor, "disguiservanish.mp3")
