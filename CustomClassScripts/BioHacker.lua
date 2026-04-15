@@ -8,9 +8,11 @@ ListenToEvent("RoundTick", function()
 			else
 				player.ActionComponent:SlowDownTimeSV(0.85)
 			end
-			GetGameState().hackedPCs = 0
-			if GetGameState().cryptoPCs > 3 then
-				GetGameState().cryptoPCs = 3
+		end
+
+		if player.robber == false then
+			if ActorHasTag(player, "SuperSerum") == false and player.CustomClassString ~= classname then
+				player.ActionComponent:SlowDownTimeSV(1.2)
 			end
 		end
 	end

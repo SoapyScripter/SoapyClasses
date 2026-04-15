@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Programmer",
+    "ClothingRowName": "DEA_Male_1",
+    "AbilityName": "Tracker",
+    "AbilityDescription": "Can place a tracker inside a moneybag and pings when any enemy comes near it",
+    "AbilityIcon": "programmertracker.png",
+    "AbilityCooldown": 60.0,
+    "PassiveName": "Firewall",
+    "PassiveDescription": "Can stop Tech from hacking computers, and can limit Crypto to only hacking three",
+    "PassiveIcon": "programmerfirewall.png",
+    "PrimaryWeapon": 15,
+    "SecondaryWeapon": 4,
+    "ClassCategory": 1
+}

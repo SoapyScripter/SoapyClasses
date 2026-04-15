@@ -16,13 +16,13 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		local maxkillstreakmoney = math.floor(playerActor.ActionComponent.MoneyAmount/2000)
+		local maxkillstreakmoney = math.floor(playerActor.ActionComponent.MoneyAmount/5000)
 		if (tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney) > 16 then
 			maxkillstreakmoney = 16 - tonumber(playerActor:GetReplicatedVar("KillStreak"))
 		end
 		if maxkillstreakmoney >= 1 then
 			playerActor:startAbilityCooldown(15.0)
-			playerActor.ActionComponent.MoneyAmount = playerActor.ActionComponent.MoneyAmount - (maxkillstreakmoney*2000)
+			playerActor.ActionComponent.MoneyAmount = playerActor.ActionComponent.MoneyAmount - (maxkillstreakmoney*5000)
 			playerActor:SetReplicatedVar("KillStreak", tostring(tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney))
 		end
 	end

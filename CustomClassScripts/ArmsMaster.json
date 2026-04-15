@@ -3,7 +3,7 @@
     "DisplayName": "Arms Master",
     "ClothingRowName": "Customer_Jacket_Red",
     "AbilityName": "Cyborg",
-    "AbilityDescription": "Can pay $2,000 to gain 1 extra kill on his killstreak",
+    "AbilityDescription": "Can pay $5,000 to gain 1 extra kill on his killstreak",
     "AbilityIcon": "armsmastercyborg.png",
     "AbilityCooldown": 15.0,
     "PassiveName": "Everlasting",
