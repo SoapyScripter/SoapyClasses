@@ -1,6 +1,14 @@
 local classname = "BioHacker"
 
 ListenToEvent("RoundTick", function()
+	local hasbiohacker = false
+
+	for i,player in ipairs(GetPlayerChars()) do
+		if player.CustomClassString == classname then
+			hasbiohacker = true
+		end	
+	end
+
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
 			if ActorHasTag(player, "SuperSerum") then
@@ -10,7 +18,7 @@ ListenToEvent("RoundTick", function()
 			end
 		end
 
-		if player.robber == false then
+		if player.robber == false and hasbiohacker then
 			if ActorHasTag(player, "SuperSerum") == false and player.CustomClassString ~= classname then
 				player.ActionComponent:SlowDownTimeSV(1.2)
 			end

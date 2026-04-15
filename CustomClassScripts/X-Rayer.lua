@@ -25,9 +25,9 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		end
 		
 		PlaySound(playerActor, "xrayeractivate.wav", 0.75)
-		GetGameState():ShowLuaImage("xrayersight", "xrayerblue.png", 0, 0, 5.0, 10000, 10000)
+		GetGameState():ShowLuaImage("xrayersight", "xrayerblue.png", 0, 0, 7.0, 10000, 10000)
 		playerActor.preventShooting = true
-		SetTimer(5.0, "XRayVisionOff", playerActor)
+		SetTimer(7.0, "XRayVisionOff", playerActor)
 	end
 end)
 
@@ -73,7 +73,9 @@ ListenToEvent("PreReceiveDamage_OnClient", function(targetActor, sourceActor)
 			end
 			
 			for i, character in ipairs(chars) do
-				character.Mesh:SetHiddenIngame(true)
+				if 1%2 == 0 then
+					character.Mesh:SetHiddenIngame(true)
+				end
 			end
 			SetTimer(5.0, "XRayVisionOff", sourceActor)
 		end
