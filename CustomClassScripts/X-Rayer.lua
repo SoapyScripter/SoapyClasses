@@ -19,7 +19,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		end
 		
 		for i, character in ipairs(chars) do
-			if 1%2 == 0 then
+			if i%2 == 0 then
 				character.Mesh:SetHiddenIngame(true)
 			end
 		end
@@ -73,7 +73,7 @@ ListenToEvent("PreReceiveDamage_OnClient", function(targetActor, sourceActor)
 			end
 			
 			for i, character in ipairs(chars) do
-				if 1%2 == 0 then
+				if i%2 == 0 then
 					character.Mesh:SetHiddenIngame(true)
 				end
 			end
