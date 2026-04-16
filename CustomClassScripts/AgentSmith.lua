@@ -48,7 +48,7 @@ ListenToEvent("AgentSmithCameraWarp", function(playerActor)
     local normal = playerActor.ActionComponent.lastCCTV:GetActorForwardVector()
     local origin, extent = playerActor:GetActorBounds(true)
     
-    playerActor:SetActorLocation(addPos(playerActor.ActionComponent.lastCCTV:GetActorLocation(), {X=normal.X*250,Y=normal.Y*250,Z=normal.Z*250 -extent.Z}))
+    playerActor:SetActorLocation(addPos(playerActor.ActionComponent.lastCCTV:GetActorLocation(), {X=normal.X*-250,Y=normal.Y*-250,Z=normal.Z*-250 -extent.Z}))
     for i, player in ipairs(GetPlayerChars()) do
         if player.robber == true then
             GetGameState():SpawnLuaPingSV("agentsmithcamera.png", playerActor.ActionComponent.lastCCTV:GetActorLocation(), player)
