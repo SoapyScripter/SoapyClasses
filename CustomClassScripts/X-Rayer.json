@@ -3,7 +3,7 @@
     "DisplayName": "X-Rayer",
     "ClothingRowName": "DEA_Female_1",
     "AbilityName": "X-Ray Vision",
-    "AbilityDescription": "Can hide half of the NPCs for 7 seconds, revealing all enemies",
+    "AbilityDescription": "Can hide two thirds of the NPCs for 7 seconds, revealing all enemies",
     "AbilityIcon": "xrayervision.png",
     "AbilityCooldown": 40.0,
     "PassiveName": "X-Ray Tagging",

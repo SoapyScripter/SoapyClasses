@@ -19,7 +19,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		end
 		
 		for i, character in ipairs(chars) do
-			if i%2 == 0 then
+			if i%3 ~= 0 then
 				character.Mesh:SetHiddenIngame(true)
 			end
 		end
