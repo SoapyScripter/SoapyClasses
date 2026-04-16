@@ -27,7 +27,7 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:startAbilityCooldown(1.0)
+		playerActor:startAbilityCooldown(30.0)
 		
 		playerActor:AbilitySV()
 	end
