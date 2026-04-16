@@ -1,4 +1,5 @@
 local classname = "Disguiser"
+local clothing = {"Customer_Hoodie_Red","Customer_Jacket_Green","Customer_Hoodie_Black","Customer_Jacket_Red","","","","","","Employee_PurpleTie","Employee_RedTie","","","","","","","","Cook"}
 
 local function GetDistance(actor1, actor2)
     local a = actor1:GetActorLocation()
@@ -51,12 +52,15 @@ ListenToEvent("AbilitySV", function(playerActor)
 		end
 		
 		if closest then
-			LogMessage(closest.ClothingID)
 			playerActor.ActionComponent:DropMoneyBagSV({X=0,Y=0,Z=0})
 			playerActor.ActionComponent:DropBombBagSV({X=0,Y=0,Z=0})
 			PlaySound(playerActor, "disguiservanish.mp3")
 			playerActor:SetActorLocation(closest:GetActorLocation())
 			closest:SetActorLocation(plrpos)
+			playerActor:SetClothesSV(clothing[closest.ClothingID])
+			closest.ClothingID_StartIncl = 1
+			closest.ClothingID_EndIncl = 4
+			closest:SetClothingID(true)
 		end
 	end
 end)
