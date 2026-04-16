@@ -9,7 +9,7 @@
     "PassiveName": "Firewall",
     "PassiveDescription": "Can stop Tech from hacking computers, and can limit Crypto to only hacking three",
     "PassiveIcon": "programmerfirewall.png",
-    "PrimaryWeapon": 15,
+    "PrimaryWeapon": 6,
     "SecondaryWeapon": 4,
     "ClassCategory": 1
 }
