@@ -3,7 +3,7 @@
     "DisplayName": "Tycoon",
     "ClothingRowName": "Customer_Hoodie_Red",
     "AbilityName": "Windfall",
-    "AbilityDescription": "Can have a 15% money boost for 3 seconds",
+    "AbilityDescription": "Can have a 35% money boost for 3 seconds",
     "AbilityIcon": "tycoonwindfall.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "Deep Pocketed",

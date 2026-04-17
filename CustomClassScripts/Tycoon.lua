@@ -10,7 +10,7 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor.ActionComponent:setStealMulti(1.15,3.0)
+        playerActor.ActionComponent:setStealMulti(1.35,3.0)
     end
 end)
 
