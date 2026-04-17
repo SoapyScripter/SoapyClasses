@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Tycoon",
+    "ClothingRowName": "Customer_Hoodie_Red",
+    "AbilityName": "Windfall",
+    "AbilityDescription": "Can have a 15% money boost for 3 seconds",
+    "AbilityIcon": "tycoonwindfall.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Deep Pocketed",
+    "PassiveDescription": "The higher the percentage of saved money his team has the more faster and stronger he is",
+    "PassiveIcon": "tycoondeeppocketed.png",
+    "PrimaryWeapon": 20,
+    "SecondaryWeapon": 30,
+    "ClassCategory": 0
+}
