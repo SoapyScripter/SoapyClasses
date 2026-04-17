@@ -1,5 +1,13 @@
 local classname = "BioHacker"
 
+ListenToEvent("RoundStarted", function()
+	for i, player in ipairs(GetPlayerChars()) do
+		if ActorHasTag(player, "SuperSerum") then
+			RemoveActorTag(player, "SuperSerum")
+		end
+	end
+end)
+
 ListenToEvent("RoundTick", function()
 	local hasbiohacker = false
 
