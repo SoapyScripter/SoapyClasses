@@ -48,6 +48,9 @@ ListenToEvent("RoundTick", function()
     for i, player in ipairs(GetPlayerChars()) do
         if player.robber == false then
             teammates = teammates + 1
+            if player.ClassID == 27 then
+                teammates = teammates + 4
+            end
         else
             robber = player
         end
@@ -79,6 +82,9 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
             for i, player in ipairs(GetPlayerChars()) do
                 if player.robber == false then
                     teammates = teammates + 1
+                    if player.ClassID == 27 then
+                        teammates = teammates + 4
+                    end
                 end
             end
             teammates = teammates - 1
