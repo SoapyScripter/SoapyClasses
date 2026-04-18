@@ -3,7 +3,7 @@ local classname = "President"
 ListenToEvent("RoundStarted", function()
     for i, player in ipairs(GetPlayerChars()) do
         if player.CustomClassString == classname then
-            SetTimer(1.0, "President100Ticks", player)
+            SetTimer(5.0, "President100Ticks", player)
         end
     end
 end)
@@ -75,7 +75,7 @@ ListenToEvent("President100Ticks", function(player)
         npc:OverwriteMovementTarget(randomPos,1)
      end
 
-    SetTimer(1.0, "President100Ticks", player)
+    SetTimer(5.0, "President100Ticks", player)
 end)
 
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
