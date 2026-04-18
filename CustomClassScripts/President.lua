@@ -3,7 +3,7 @@ local classname = "President"
 ListenToEvent("RoundStarted", function()
     for i, player in ipairs(GetPlayerChars()) do
         if player.CustomClassString == classname then
-            SetTimer(5.0, "President500Ticks", player)
+            SetTimer(0.25, "President25Ticks", player)
         end
     end
 end)
@@ -62,7 +62,7 @@ ListenToEvent("EndHystericNpcs", function(player)
     end
 end)
 
-ListenToEvent("President500Ticks", function(player)
+ListenToEvent("President25Ticks", function(player)
     for i, npc in ipairs(GetAllActorsWithTag("Hysteric")) do
         local pos = npc:GetActorLocation()
         local forward = npc:GetActorForwardVector()
@@ -72,10 +72,10 @@ ListenToEvent("President500Ticks", function(player)
             Z = pos.Z + forward.Z * math.random(-1000,1000)
         }
 
-        npc:OverwriteMovementTarget(randomPos,5)
+        npc:OverwriteMovementTarget(randomPos,0.25)
      end
 
-    SetTimer(5.0, "President500Ticks", player)
+    SetTimer(0.25, "President25Ticks", player)
 end)
 
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
