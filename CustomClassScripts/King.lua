@@ -15,6 +15,15 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
+        local robber = nil
+
+        for i, player in ipairs(GetPlayerChars()) do
+            if player.robber == true then
+                robber = player
+                break
+            end
+        end
+
         local plrpos = playerActor:GetActorLocation()
         local closestcustomer = GetClosestActor("AI_Customer", plrpos)
         local closestemployee = GetClosestActor("AI_Employee", plrpos)
@@ -32,7 +41,7 @@ ListenToEvent("AbilitySV", function(playerActor)
             end
         end
 
-        if closest then
+        if closest and robber then
             if GetDistance(playerActor,closest) <= 350 then
                 PlaySound(closest, "kingnuck"..tostring(math.random(1,2))..".mp3")
                 playerActor:startAbilityCooldown(45.0)
