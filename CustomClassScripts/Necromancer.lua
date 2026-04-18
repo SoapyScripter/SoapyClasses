@@ -10,26 +10,18 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
-		local customers = GetAllActorsOfClass("AI_Customer")
-		local employees = GetAllActorsOfClass("AI_Employee")
-		local cooks = GetAllActorsOfClass("AI_KitchenStaff")
-		local chars = {}	
-		
-		for i, customer in ipairs(customers) do
-			table.insert(chars,customer)
-		end
-		for i, employee in ipairs(employees) do
-			table.insert(chars,employee)
-		end
-		for i, cook in ipairs(cooks) do
-			table.insert(chars,cook)
-		end
+		local plrpos = playerActor:GetActorLocation()
+		for i=1,3 do
+			local closest = GetClosestActor("Ragdoll", plrpos)
 
-        for i, char in ipairs(chars) do
-            AddActorTag(char,"Hysteric")
+            if closest then
+                local closestpos = closest:GetActorLocation()
+
+                GetGameState():LuaDestroyActor(closest)
+
+                SpawnActor("PlayerAI_Rob",closestpos,nil,nil,"Necromanced")
+            end
         end
-
-        SetTimer(10.0, "EndHystericNpcs", playerActor)
     end
 end)
 
@@ -51,9 +43,16 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage, damtype)
 	if source then
 		if source.CustomClassString == classname then
             if targetnpc then
-                if damtype == 2 then
-                    if math.random(1,4) == 1 then
-                        SpawnActor("PlayerAI_Rob",target:GetActorLocation(),nil,nil,"Necromanced")
+                if target.HP - damage <= 0 then
+                    if damtype == 2 then
+                        if math.random(1,4) == 1 then
+                            local targetpos = target:GetActorLocation()
+    
+                            target.dontSpawnRagdoll = true
+                            GetGameState():LuaDestroyActor(target)
+    
+                            SpawnActor("PlayerAI_Rob",targetpos,nil,nil,"Necromanced")
+                        end
                     end
                 end
             end
