@@ -27,7 +27,7 @@ end)
 
 ListenToEvent("RoundTick", function()
     for i, npc in ipairs(GetAllActorsWithTag("Necromanced")) do
-        npc:SlowDownTimeSV(0.7)
+        npc:SlowDownTimeSV(0.45)
     end
 end)
 
