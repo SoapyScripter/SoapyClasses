@@ -19,8 +19,13 @@ ListenToEvent("AbilitySV", function(playerActor)
 			Z = plrpos.Z - forward.Z * 50
 		}
 		
-		SpawnActor("PlayerAI_Rob",behindPos)
-		SpawnActor("PlayerAI_Rob",behindPos)
+		SpawnActor("PlayerAI_Rob",behindPos,nil,nil,"FreshCartel")
+		SpawnActor("PlayerAI_Rob",behindPos,nil,nil,"FreshCartel")
+
+		for i, npc in ipairs(GetAllActorsWithTag("FreshCartel")) do
+			npc.difficulty = 1
+			RemoveActorTag(npc,"FreshCartel")
+		end
 	end
 end)
 

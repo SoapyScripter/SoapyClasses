@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "King",
+    "ClothingRowName": "DEA_Male_3",
+    "AbilityName": "Snitch",
+    "AbilityDescription": "Can make a NPC rat out where a robber is",
+    "AbilityIcon": "kingsnitch.png",
+    "AbilityCooldown": 30.0,
+    "PassiveName": "Army",
+    "PassiveDescription": "The more teammates he has the faster and stronger he is, and if he has a queen it counts as 5 teammates",
+    "PassiveIcon": "kingarmy.png",
+    "PrimaryWeapon": 29,
+    "SecondaryWeapon": 30,
+    "ClassCategory": 1
+}

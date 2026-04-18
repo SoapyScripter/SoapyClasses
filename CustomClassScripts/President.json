@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "President",
+    "ClothingRowName": "DEA_Male_2",
+    "AbilityName": "Mass Hysteria",
+    "AbilityDescription": "Can cause mass panic making all NPCs panic for 10 seconds",
+    "AbilityIcon": "presidenthysteria.png",
+    "AbilityCooldown": 60.0,
+    "PassiveName": "Bodyguards",
+    "PassiveDescription": "Spawns 2 bot cops when he dies",
+    "PassiveIcon": "presidentbodyguards.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 7,
+    "ClassCategory": 2
+}

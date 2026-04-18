@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Necromancer",
+    "ClothingRowName": "Customer_Hoodie_Red",
+    "AbilityName": "Necromancy",
+    "AbilityDescription": "Can make the 3 closest dead bodies become bot robbers",
+    "AbilityIcon": "necromancernecromancy.png",
+    "AbilityCooldown": 75.0,
+    "PassiveName": "Accidental Necromancy",
+    "PassiveDescription": "When killing an NPC with a melee he has a 1 in 4 chance to turn the NPC into a bot robber",
+    "PassiveIcon": "necromanceraccidental.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 32,
+    "ClassCategory": 0
+}

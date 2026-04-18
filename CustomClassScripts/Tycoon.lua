@@ -10,7 +10,13 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor.ActionComponent:setStealMulti(1.35,3.0)
+        for i, player in ipairs(GetPlayerChars()) do
+            if player.robber == false then
+                GetGameState():SpawnLuaPingSV("tycoonwindfall", playerActor:GetActorLocation(),player)
+                break
+            end
+        end
+        playerActor.ActionComponent:setStealMulti(1.35,4.0)
     end
 end)
 
