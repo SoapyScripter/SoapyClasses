@@ -34,6 +34,7 @@ ListenToEvent("AbilitySV", function(playerActor)
 
         if closest then
             if GetDistance(playerActor,closest) <= 350 then
+                PlaySound(closest, "kingnuck"..tostring(math.random(1,2))..".mp3")
                 playerActor:startAbilityCooldown(45.0)
                 AddActorTag(closest,"Snitch")
             end
@@ -65,7 +66,8 @@ ListenToEvent("RoundTick", function()
 
     if robber then
         for i, npc in ipairs(GetAllActorsWithTag("Snitch")) do
-            if GetDistance(npc,robber) <= 350 then
+            if GetDistance(npc,robber) <= 250 then
+                PlaySound(npc, "kingnuck3.mp3")
                 RemoveActorTag(npc,"Snitch")
             else
                 npc:OverwriteMovementTarget(robber:GetActorLocation(),0.1)
