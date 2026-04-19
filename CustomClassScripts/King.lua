@@ -90,13 +90,17 @@ ListenToEvent("RoundTick", function()
     if robber then
         for i, npc in ipairs(GetAllActorsWithTag("Snitch")) do
             if GetDistance(npc,robber) <= 250 then
-                PlaySound(npc, "kingnuck3.mp3")
+                SetTimer(0.01, "NPCKingFound", npc)
                 RemoveActorTag(npc,"Snitch")
             else
                 npc:OverwriteMovementTarget(robber:GetActorLocation(),0.1)
             end
         end
     end
+end)
+
+ListenToEvent("NPCKingFound_OnClient", function(npc)
+    PlaySound(npc, "kingnuck3.mp3")
 end)
 
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
