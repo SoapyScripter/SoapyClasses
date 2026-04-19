@@ -39,7 +39,21 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:AbilitySV()
+		local plrpos = playerActor:GetActorLocation()
+		local closest = GetClosestActor("HackablePC", plrpos)
+		local numofstreamers = 0
+		
+		for i, player in ipairs(GetPlayerChars()) do
+			if player.CustomClassString == classname then
+				numofstreamers = numofstreamers + 1
+			end
+		end
+				
+		if closest and GetDistance(playerActor, closest) <= 500 and not ActorHasTag(closest, "Streaming") and #GetAllActorsWithTag("Streaming") < (5 * numofstreamers) then
+			playerActor:StartAbilityCooldown(45.0)
+			PlaySound(closest, "streamerstart.mp3",0.5)
+			playerActor:AbilitySV()
+		end
 	end
 end)
 
@@ -56,8 +70,6 @@ ListenToEvent("AbilitySV", function(playerActor)
 		end
 			
 		if closest and GetDistance(playerActor, closest) <= 500 and not ActorHasTag(closest, "Streaming") and #GetAllActorsWithTag("Streaming") < (5 * numofstreamers) then
-			playerActor:StartAbilityCooldown(45.0)
-			PlaySound(closest, "streamerstart.mp3",0.5)
 			AddActorTag(closest, "Streaming")
 		end
 	end

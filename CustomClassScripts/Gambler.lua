@@ -2,16 +2,21 @@ local classname = "Gambler"
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:AbilitySV()
+        if playerActor.ActionComponent.moneyAmount > 0 then
+            if math.random(1,2) == 1 then
+                playerActor:startAbilityCooldown(10)
+            else
+                playerActor:startAbilityCooldown(30)
+            end
+            PlaySound(playerActor, "GamblerScroll.mp3")
+            playerActor:AbilitySV()
+        end
     end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
         if playerActor.ActionComponent.moneyAmount > 0 then
-            playerActor:startAbilityCooldown(math.ceil(25.0 * (math.random(1,6)/3)))
-            PlaySound(playerActor, "GamblerScroll.mp3")
-
             SetTimer(3.5, "GamblerGamble", playerActor)
         end
     end
@@ -37,7 +42,7 @@ end)
 
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
     if source.CustomClassString == classname or target.CustomClassString == classname then
-        local multi = math.random(1,6) - 3
+        local multi = math.random(1,6)/6
 
         target.HP = target.HP + (damage * multi)
     end

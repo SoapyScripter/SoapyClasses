@@ -3,13 +3,13 @@
     "DisplayName": "Tycoon",
     "ClothingRowName": "Customer_Hoodie_Red",
     "AbilityName": "Windfall",
-    "AbilityDescription": "Can have a 35% money boost for 4 seconds but pings the cops where he is",
+    "AbilityDescription": "Can have a 50% money boost for 5 seconds but pings the cops where he is",
     "AbilityIcon": "tycoonwindfall.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "Deep Pocketed",
-    "PassiveDescription": "The higher the percentage of saved money his team has the more faster and stronger he is",
+    "PassiveDescription": "The higher amount of money on his back the faster and stronger he is",
     "PassiveIcon": "tycoondeeppocketed.png",
-    "PrimaryWeapon": 20,
+    "PrimaryWeapon": 4,
     "SecondaryWeapon": 30,
     "ClassCategory": 0
 }

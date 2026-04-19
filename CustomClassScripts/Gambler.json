@@ -9,7 +9,7 @@
     "PassiveName": "Lucky Dice",
     "PassiveDescription": "Has a random multiplier to his damage and to the damage he recives",
     "PassiveIcon": "gamblerdice.png",
-    "PrimaryWeapon": 20,
+    "PrimaryWeapon": 8,
     "SecondaryWeapon": 21,
     "ClassCategory": 2
 }

@@ -7,7 +7,7 @@
     "AbilityIcon": "presidenthysteria.png",
     "AbilityCooldown": 60.0,
     "PassiveName": "Bodyguards",
-    "PassiveDescription": "Spawns 2 bot cops when he dies",
+    "PassiveDescription": "Spawns a bot cop for 5 seconds on his death",
     "PassiveIcon": "presidentbodyguards.png",
     "PrimaryWeapon": 4,
     "SecondaryWeapon": 7,

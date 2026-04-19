@@ -7,6 +7,14 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	end
 end)
 
+ListenToEvent("RoundEnded_OnClient", function()
+	for i, player in ipairs(GetPlayerChars()) do
+		if player.CustomClassString == "Chameleon" then
+			player.Mesh:SetHiddenIngame(true)
+		end
+	end
+end)
+
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
 		playerActor.preventShooting = true
@@ -22,7 +30,7 @@ end)
 ListenToEvent("RoundTick_OnClient", function()
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
-			if player.ActionComponent.moneyAmount > 0 or (player:GetVelocity().X + player:GetVelocity().Z) > 0 then
+			if player.ActionComponent.moneyAmount > 0 or (player:GetVelocity().X + player:GetVelocity().Y) > 0 then
 				SetTimer(0.01, "ChameleonStop", player)
 			end
 		end
@@ -32,7 +40,7 @@ end)
 ListenToEvent("RoundTick", function()
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
-			if player.ActionComponent.moneyAmount > 0 or (player:GetVelocity().X + player:GetVelocity().Z) > 0 then
+			if player.ActionComponent.moneyAmount > 0 or (player:GetVelocity().X + player:GetVelocity().Y) > 0 then
 				player.preventShooting = false
 			end
 		end

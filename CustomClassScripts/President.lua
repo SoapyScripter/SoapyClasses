@@ -91,12 +91,16 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
                 }
                 
                 SpawnActor("PlayerAI_Cop",behindPos,nil,nil,"FreshPresident")
-                SpawnActor("PlayerAI_Cop",behindPos,nil,nil,"FreshPresident")
                 for i, npc in ipairs(GetAllActorsWithTag("FreshPresident")) do
                     npc.difficulty = 2
                     RemoveActorTag(npc,"FreshPresident")
+                    SetTimer(5.0,"DespawnBodyguardPresident",npc)
                 end
             end
 		end
 	end
+end)
+
+ListenToEvent("DespawnBodyguardPresident", function(npc)
+    GetGameState():LuaDestroyActor(npc)
 end)

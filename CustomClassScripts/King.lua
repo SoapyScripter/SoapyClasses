@@ -9,7 +9,30 @@ end
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:AbilitySV()
+        local plrpos = playerActor:GetActorLocation()
+        local closestcustomer = GetClosestActor("AI_Customer", plrpos)
+        local closestemployee = GetClosestActor("AI_Employee", plrpos)
+        local closestcook = GetClosestActor("AI_KitchenStaff", plrpos)
+        local closest = closestcustomer
+        
+        if closestcustomer and closestemployee then
+            if GetDistance(playerActor, closestemployee) < GetDistance(playerActor, closestcustomer) then
+                closest = closestemployee
+                if closestemployee and closestcook then
+                    if GetDistance(playerActor, closestcook) < GetDistance(playerActor, closestemployee) then
+                        closest = closestcook
+                    end
+                end
+            end
+        end
+
+        if closest then
+            if GetDistance(playerActor,closest) <= 350 then
+                PlaySound(closest, "kingnuck"..tostring(math.random(1,2))..".mp3")
+                playerActor:startAbilityCooldown(45.0)
+                playerActor:AbilitySV()
+            end
+        end
     end
 end)
 

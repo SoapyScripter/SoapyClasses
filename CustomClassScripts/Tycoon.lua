@@ -23,9 +23,9 @@ end)
 ListenToEvent("RoundTick", function()
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
-            local moneyPercentage = GetGameState().savedMoney/GetGameState().requiredSavedMoney
+            local moneyPercentage = player.ActionComponent.moneyAmount/16000
 
-            player.ActionComponent:SlowDownTimeSV(1 + (moneyPercentage/4))
+            player.ActionComponent:SlowDownTimeSV(1 + moneyPercentage)
 		end
 	end
 end)
@@ -33,7 +33,7 @@ end)
 ListenToEvent("PreReceiveDamage", function(target, source, damage)
 	if source then
 		if source.CustomClassString == classname then
-			target.HP = target.HP - math.ceil(damage * ((GetGameState().savedMoney/GetGameState().requiredSavedMoney)/4))
+			target.HP = target.HP - math.ceil(damage * (source.ActionComponent.moneyAmount/16000))
 		end
 	end
 end)
