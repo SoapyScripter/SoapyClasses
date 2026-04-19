@@ -7,7 +7,7 @@
     "AbilityIcon": "celebrityfamous.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "Paparazzi",
-    "PassiveDescription": "Recives $1,000 everytime he is looked at on cameras with a 10 seconds cooldown",
+    "PassiveDescription": "Receives $1,000 everytime he is looked at on cameras with a 10 seconds cooldown",
     "PassiveIcon": "celebritypaparazzi.png",
     "PrimaryWeapon": 4,
     "SecondaryWeapon": 14,
