@@ -31,21 +31,33 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
         if playerActor.ActionComponent.lastCCTV then
             playerActor:startAbilityCooldown(45.0)
-
-            SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
+            
+            AddActorTag(playerActor.ActionComponent.lastCCTV, "AgentSmithCam"..playerActor.PlayersName)
+            playerActor:AbilitySV()
         end
+    end
+end)
+
+ListenToEvent("AbilitySV", function(playerActor)
+    if playerActor.CustomClassString == classname then
+        SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
     end
 end)
 
 ListenToEvent("AgentSmithCameraWarp", function(playerActor)
     PlaySound(playerActor, "agentsmithwarp.mp3")
-    local normal = playerActor.ActionComponent.lastCCTV:GetActorForwardVector()
+    local camera = nil
+    for i, v in ipairs(GetAllActorsWithTag("AgentSmithCam"..playerActor.PlayersName)) do
+        camera = v
+        break
+    end
+    local normal = camera:GetActorForwardVector()
     local origin, extent = playerActor:GetActorBounds(true)
     
-    playerActor:SetActorLocation(addPos(playerActor.ActionComponent.lastCCTV:GetActorLocation(), {X=normal.Y*-250,Y=normal.X*250,Z=normal.Z*-250 -extent.Z}))
+    playerActor:SetActorLocation(addPos(camera:GetActorLocation(), {X=normal.Y*-250,Y=normal.X*250,Z=normal.Z*-250 -extent.Z}))
     for i, player in ipairs(GetPlayerChars()) do
         if player.robber == true then
-            GetGameState():SpawnLuaPingSV("agentsmithcamera.png", playerActor.ActionComponent.lastCCTV:GetActorLocation(), player)
+            GetGameState():SpawnLuaPingSV("agentsmithcamera.png", camera:GetActorLocation(), player)
             break
         end
     end
