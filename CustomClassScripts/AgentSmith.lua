@@ -30,12 +30,18 @@ end)
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
         if playerActor.ActionComponent.lastCCTV then
+            LogMessage(playerActor.ActionComponent.CCTVs)
+            playerActor:SetReplicatedVar("CamID", tostring(playerActor.ActionComponent.currentCamID))
             playerActor:startAbilityCooldown(45.0)
             
-            AddActorTag(playerActor.ActionComponent.lastCCTV, "AgentSmithCam"..playerActor.PlayersName)
+            SetTimer(0.01, "AgentSmithCamera", playerActor.ActionComponent.lastCCTV)
             playerActor:AbilitySV()
         end
     end
+end)
+
+ListenToEvent("AgentSmithCamera", function(cctv)
+    AddActorTag(cctv, "AgentSmithCam")
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
@@ -47,7 +53,7 @@ end)
 ListenToEvent("AgentSmithCameraWarp", function(playerActor)
     PlaySound(playerActor, "agentsmithwarp.mp3")
     local camera = nil
-    for i, v in ipairs(GetAllActorsWithTag("AgentSmithCam"..playerActor.PlayersName)) do
+    for i, v in ipairs(GetAllActorsWithTag("AgentSmithCam")) do
         camera = v
         break
     end
@@ -61,6 +67,7 @@ ListenToEvent("AgentSmithCameraWarp", function(playerActor)
             break
         end
     end
+    RemoveActorTag(camera, "AgentSmithCam")
     PlaySound(playerActor, "agentsmithwarp.mp3")
 end)
 
