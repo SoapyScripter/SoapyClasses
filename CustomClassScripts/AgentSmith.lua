@@ -29,15 +29,11 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:AbilitySV()
-    end
-end)
+        if playerActor.ActionComponent.lastCCTV then
+            playerActor:startAbilityCooldown(45.0)
 
-ListenToEvent("AbilitySV", function(playerActor)
-    if playerActor.CustomClassString == classname then
-        playerActor:startAbilityCooldown(45.0)
-
-        SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
+            SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
+        end
     end
 end)
 
