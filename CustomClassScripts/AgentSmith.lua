@@ -35,11 +35,9 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
-        if playerActor.ActionComponent.lastCCTV then
-            playerActor:startAbilityCooldown(45.0)
+        playerActor:startAbilityCooldown(45.0)
 
-            SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
-        end
+        SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
     end
 end)
 
