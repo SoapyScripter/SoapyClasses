@@ -11,7 +11,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
-		for i=1,3 do
+		for i=1,2 do
 			local closest = GetClosestActor("Ragdoll", plrpos)
 
             if closest then
@@ -45,7 +45,7 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage, damtype)
             if targetnpc then
                 if target.HP - damage <= 0 then
                     if damtype == 2 then
-                        if math.random(1,4) == 1 then
+                        if math.random(1,6) == 1 then
                             local targetpos = target:GetActorLocation()
     
                             target.dontSpawnRagdoll = true

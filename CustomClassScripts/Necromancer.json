@@ -7,7 +7,7 @@
     "AbilityIcon": "necromancernecromancy.png",
     "AbilityCooldown": 75.0,
     "PassiveName": "Accidental Necromancy",
-    "PassiveDescription": "When killing an NPC with a melee he has a 1 in 4 chance to turn the NPC into a bot robber",
+    "PassiveDescription": "When killing an NPC with a melee he has a 1 in 6 chance to turn the NPC into a bot robber",
     "PassiveIcon": "necromanceraccidental.png",
     "PrimaryWeapon": 4,
     "SecondaryWeapon": 32,
