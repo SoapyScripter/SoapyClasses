@@ -34,7 +34,12 @@ end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:AbilitySV()
+		local closest = GetClosestActor("MoneyBag", playerActor:GetActorLocation())
+
+		if closest then
+			playerActor:startAbilityCooldown(60.0)
+			playerActor:AbilitySV()
+		end
 	end
 end)
 
@@ -43,7 +48,6 @@ ListenToEvent("AbilitySV", function(playerActor)
 		local closest = GetClosestActor("MoneyBag", playerActor:GetActorLocation())
 
 		if closest then
-			playerActor:startAbilityCooldown(60.0)
 			AddActorTag(closest, "Tracked")
 		end
 	end

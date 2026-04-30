@@ -11,7 +11,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
 		local plrpos = playerActor:GetActorLocation()
-		for i=1,2 do
+		for i=1,3 do
 			local closest = GetClosestActor("Ragdoll", plrpos)
 
             if closest then
