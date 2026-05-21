@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Kingpin",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Lucky",
+    "AbilityDescription": "Can make all cops have worse aim for 15 seconds",
+    "AbilityIcon": "kingpinlucky.png",
+    "AbilityCooldown": 30.0,
+    "PassiveName": "Money Laundering",
+    "PassiveDescription": "Can launder $1,000 on his back every 5 seconds when next to any computer",
+    "PassiveIcon": "kingpinlaunder.png",
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 8,
+    "ClassCategory": 0
+}

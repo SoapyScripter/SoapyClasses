@@ -19,7 +19,7 @@ ListenToEvent("AgentSmithSixthSense", function(playerActor)
     for i, player in ipairs(GetPlayerChars()) do
         if player.robber == true then
             if player.ActionComponent.moneyAmount > 0 then
-                GetGameState():SpawnLuaPingSV("agentsmithsixth.png", player:GetActorLocation(), playerActor)
+                GetGameState():SpawnLuaPingSV("agentsmithsixth.png", player:GetActorLocation(), playerActor.ActionComponent.lastCCTV)
             end
         end
     end
@@ -30,33 +30,14 @@ end)
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
         if playerActor.ActionComponent.lastCCTV then
-            LogMessage(playerActor.ActionComponent.CCTVs)
-            playerActor:SetReplicatedVar("CamID", tostring(playerActor.ActionComponent.currentCamID))
+            playerActor:SendMulticastRPCWithActors("AgentSmithCameraWarp", playerActor)
             playerActor:startAbilityCooldown(45.0)
-            
-            SetTimer(0.01, "AgentSmithCamera", playerActor.ActionComponent.lastCCTV)
-            playerActor:AbilitySV()
         end
     end
 end)
 
-ListenToEvent("AgentSmithCamera", function(cctv)
-    AddActorTag(cctv, "AgentSmithCam")
-end)
-
-ListenToEvent("AbilitySV", function(playerActor)
-    if playerActor.CustomClassString == classname then
-        SetTimer(1.75, "AgentSmithCameraWarp", playerActor)
-    end
-end)
-
-ListenToEvent("AgentSmithCameraWarp", function(playerActor)
+ListenToEvent("AgentSmithCameraWarp", function(playerActor, camera)
     PlaySound(playerActor, "agentsmithwarp.mp3")
-    local camera = nil
-    for i, v in ipairs(GetAllActorsWithTag("AgentSmithCam")) do
-        camera = v
-        break
-    end
     local normal = camera:GetActorForwardVector()
     local origin, extent = playerActor:GetActorBounds(true)
     

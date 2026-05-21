@@ -7,7 +7,6 @@ local function GetDistance(actor1, actor2)
     return math.sqrt(dx*dx + dy*dy + dz*dz)
 end
 
-
 ListenToEvent("RoundStarted", function()
     local players = GetPlayerChars()
     for i, player in ipairs(players) do
