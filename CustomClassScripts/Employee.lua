@@ -9,9 +9,13 @@ end
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:startAbilityCooldown(30.0)
-
-        playerActor:AbilitySV()
+        for i, pc in ipairs(GetAllActorsOfClass("HackablePC")) do
+            if GetDistance(pc,playerActor) <= 1000 then
+                playerActor:startAbilityCooldown(30.0)
+                playerActor:AbilitySV()
+                break
+            end
+        end
     end
 end)
 
