@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Employee",
+    "ClothingRowName": "Employee_PurpleTie",
+    "AbilityName": "Embezzlement",
+    "AbilityDescription": "Can embezzle $1,000 from the required money when next to any computer, but pings the cops of the computer's location",
+    "AbilityIcon": "employeeembezzlement.png",
+    "AbilityCooldown": 30.0,
+    "PassiveName": "Theft of Assets",
+    "PassiveDescription": "Has a 50% money boost when in employee zones",
+    "PassiveIcon": "employeetheft.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 23,
+    "ClassCategory": 1
+}

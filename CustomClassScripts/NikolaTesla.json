@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Nikola Tesla",
+    "ClothingRowName": "DEA_Male_2",
+    "AbilityName": "Tesla Turret",
+    "AbilityDescription": "Can turn cameras into a RC taser turret",
+    "AbilityIcon": "nikolaturret.png",
+    "AbilityCooldown": 30.0,
+    "PassiveName": "Taser",
+    "PassiveDescription": "All weapons do 50% less damage but tase enemies for 1 second",
+    "PassiveIcon": "nikolataser.png",
+    "PrimaryWeapon": 15,
+    "SecondaryWeapon": 38,
+    "ClassCategory": 0
+}
