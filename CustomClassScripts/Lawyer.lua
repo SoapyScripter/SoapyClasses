@@ -16,19 +16,24 @@ local function addPos(pos1, pos2)
 end
 
 ListenToEvent("RoundStarted", function()
+    local haslawyer = false
+
     for i, player in ipairs(GetPlayerChars()) do
         if player.CustomClassString == classname then
             player:SetReplicatedVar("LawyerNPCsKilled", "0")
+            haslawyer = true
         end
     end
-    for i, npc in ipairs(GetAllActorsOfClass("AI_Customer")) do
-        npc.dontFire = true
-    end
-    for i, npc in ipairs(GetAllActorsOfClass("AI_Employee")) do
-        npc.dontFire = true
-    end
-    for i, npc in ipairs(GetAllActorsOfClass("AI_KitchenStaff")) do
-        npc.dontFire = true
+    if haslawyer then
+        for i, npc in ipairs(GetAllActorsOfClass("AI_Customer")) do
+            npc.dontFire = true
+        end
+        for i, npc in ipairs(GetAllActorsOfClass("AI_Employee")) do
+            npc.dontFire = true
+        end
+        for i, npc in ipairs(GetAllActorsOfClass("AI_KitchenStaff")) do
+            npc.dontFire = true
+        end
     end
 end)
 
@@ -93,17 +98,23 @@ end)
 
 ListenToEvent("PreReceiveDamage", function(target, source)
     local targetnpc = true
+    local haslawyer = false
     
     for i, player in ipairs(GetPlayerChars()) do
         if player == target then
             targetnpc = false
+        end
+        if player.CustomClassString == classname then
+            haslawyer = true
         end
     end
 
 	if source then
         if source.robber == false then
             if targetnpc then
-                GetGameState().savedMoney = GetGameState().savedMoney + 1000
+                if haslawyer then
+                    GetGameState().savedMoney = GetGameState().savedMoney + 1000
+                end
             end
         end
 	end
