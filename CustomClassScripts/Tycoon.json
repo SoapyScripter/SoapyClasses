@@ -7,7 +7,7 @@
     "AbilityIcon": "tycoonwindfall.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "Deep Pocketed",
-    "PassiveDescription": "The higher amount of money on his back the faster and stronger he is",
+    "PassiveDescription": "The higher the amount of money on his back, the more damage he deals",
     "PassiveIcon": "tycoondeeppocketed.png",
     "PrimaryWeapon": 4,
     "SecondaryWeapon": 30,

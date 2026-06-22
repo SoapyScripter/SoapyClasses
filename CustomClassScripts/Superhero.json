@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Superhero",
+    "ClothingRowName": "Customer_Jacket_Red",
+    "AbilityName": "Laser Beam",
+    "AbilityDescription": "Can shoot a laser out of his chest for 5 seconds, setting things on fire including plants, vaults, and enemies",
+    "AbilityIcon": "superherolaser.png",
+    "AbilityCooldown": 30.0,
+    "PassiveName": "Super Strength",
+    "PassiveDescription": "Has super strength, killing enemies in one tap",
+    "PassiveIcon": "superherostrength.png",
+    "PrimaryWeapon": 0,
+    "SecondaryWeapon": 0,
+    "ClassCategory": 0
+}

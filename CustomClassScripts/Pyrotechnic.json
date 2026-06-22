@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Pyrotechnic",
+    "ClothingRowName": "Cop_2",
+    "AbilityName": "Decoy bag",
+    "AbilityDescription": "Converts a bomb bag into a decoy, when an enemy comes near the decoy it explodes into a fire ball",
+    "AbilityIcon": "pyrodecoy.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Smoke Alarm",
+    "PassiveDescription": "Gets pinged when any fire starts or a bomb is planted",
+    "PassiveIcon": "pyrosmoke.png",
+    "PrimaryWeapon": 39,
+    "SecondaryWeapon": 12,
+    "ClassCategory": 1
+}
