@@ -1,10 +1,11 @@
 local classname = "AgentSmith"
 
 local function addPos(pos1, pos2)
-	pos1.X = pos1.X + pos2.X
-	pos1.Y = pos1.Y + pos2.Y
-	pos1.Z = pos1.Z + pos2.Z
-	return pos1
+    local returnpos = {X=0,Y=0,Z=0}
+	returnpos.X = pos1.X + pos2.X
+	returnpos.Y = pos1.Y + pos2.Y
+	returnpos.Z = pos1.Z + pos2.Z
+	return returnpos
 end
 
 ListenToEvent("RoundStarted", function()

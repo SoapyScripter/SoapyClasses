@@ -20,7 +20,7 @@ ListenToEvent("MusicianKeen", function(playerActor)
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.robber == true then
 			if math.random(1,15) == 1 then
-				GetGameState():SpawnLuaPingSV("musiciankeen.png", player:GetActorLocation(),playerActor)
+				GetGameState():SpawnLuaPingSV("musiciankeen.png", player:GetActorLocation())
 			end
 		end
 	end

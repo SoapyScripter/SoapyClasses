@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Lawyer",
+    "ClothingRowName": "Employee_RedTie",
+    "AbilityName": "Witness",
+    "AbilityDescription": "Can ask an NPC 3 possible locations of a enemy",
+    "AbilityIcon": "lawyerwitness.png",
+    "AbilityCooldown": 45.0,
+    "PassiveName": "Plea Deal",
+    "PassiveDescription": "Cops can't be fired, instead they reward the robbers with $1k",
+    "PassiveIcon": "lawyerplea.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 31,
+    "ClassCategory": 2
+}

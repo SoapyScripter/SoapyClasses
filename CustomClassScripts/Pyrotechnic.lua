@@ -32,6 +32,7 @@ ListenToEvent("PyroFireCheck", function(player)
                 if GetDistance(bag, player) <= 500 then
                     SpawnActor("BoomBarrell", bag:GetActorLocation(), nil, nil, "PyroBarrel")
                     GetActorWithTag("PyroBarrel"):ExplodeDelaySV(0)
+                    RemoveActorTag(bag, "PyroDecoy")
                 end
             end
         end
@@ -43,7 +44,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
         local closest = GetClosestActor("BombBag", playerActor:GetActorLocation())
         
-        if closest and GetDistance(closest, playerActor) <= 500 then
+        if closest and GetDistance(closest, playerActor) <= 500 and not ActorHasTag(closest, "PyroDecoy") then
             playerActor:startAbilityCooldown(25.0)
 		
             playerActor:AbilitySV()
@@ -55,7 +56,7 @@ ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
         local closest = GetClosestActor("BombBag", playerActor:GetActorLocation())
         
-        if closest and GetDistance(closest, playerActor) <= 500 then
+        if closest and GetDistance(closest, playerActor) <= 500 and not ActorHasTag(closest, "PyroDecoy") then
             AddActorTag(closest, "PyroDecoy")
         end
 	end
