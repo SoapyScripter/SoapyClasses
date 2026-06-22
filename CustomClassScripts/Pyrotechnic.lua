@@ -1,5 +1,12 @@
 local classname = "Pyrotechnic"
 
+local function GetDistance(actor1, actor2)
+    local a = actor1:GetActorLocation()
+    local b = actor2:GetActorLocation()
+    local dx, dy, dz = a.X-b.X, a.Y-b.Y, a.Z-b.Z
+    return math.sqrt(dx*dx + dy*dy + dz*dz)
+end
+
 ListenToEvent("RoundStarted", function()
     for i, player in ipairs(GetPlayerChars()) do
         if player.CustomClassString == classname then
@@ -19,19 +26,37 @@ ListenToEvent("PyroFireCheck", function(player)
             GetGameState():SpawnLuaPingSV("pyrobomb.png", safe:GetActorLocation(), player)
         end
     end
+    for i, bag in ipairs(GetAllActorsWithTag("PyroDecoy")) do
+        for _, player in ipairs(GetPlayerChars()) do
+            if player.robber == true then
+                if GetDistance(bag, player) <= 500 then
+                    SpawnActor("BoomBarrell", bag:GetActorLocation(), nil, nil, "PyroBarrel")
+                    GetActorWithTag("PyroBarrel"):ExplodeDelaySV(0)
+                end
+            end
+        end
+    end
     SetTimer(1.0, "PyroFireCheck", player)
 end)
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		playerActor:startAbilityCooldown(45.0)
+        local closest = GetClosestActor("BombBag", playerActor:GetActorLocation())
+        
+        if closest and GetDistance(closest, playerActor) <= 500 then
+            playerActor:startAbilityCooldown(25.0)
 		
-		playerActor:AbilitySV()
+            playerActor:AbilitySV()
+        end
 	end
 end)
 
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
-		SpawnActor("MolotovPart", playerActor:GetActorLocation())
+        local closest = GetClosestActor("BombBag", playerActor:GetActorLocation())
+        
+        if closest and GetDistance(closest, playerActor) <= 500 then
+            AddActorTag(closest, "PyroDecoy")
+        end
 	end
 end)

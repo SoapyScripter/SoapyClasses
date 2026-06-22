@@ -9,9 +9,13 @@ end
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:startAbilityCooldown(30.0)
+        local closest = GetClosestActor("CCTV", playerActor:GetActorLocation())
 
-        playerActor:AbilitySV()
+		if closest and GetDistance(playerActor, closest) <= 500 then
+            playerActor:startAbilityCooldown(30.0)
+
+            playerActor:AbilitySV()
+        end
     end
 end)
 

@@ -7,9 +7,9 @@
     "AbilityIcon": "kingpinlucky.png",
     "AbilityCooldown": 30.0,
     "PassiveName": "Money Laundering",
-    "PassiveDescription": "Can launder $1,000 on his back every 5 seconds when next to any computer",
+    "PassiveDescription": "Can launder $1,000 on his back every 5 seconds when next to any computer but pings the cops when he does",
     "PassiveIcon": "kingpinlaunder.png",
     "PrimaryWeapon": 2,
     "SecondaryWeapon": 8,
-    "ClassCategory": 0
+    "ClassCategory": 1
 }

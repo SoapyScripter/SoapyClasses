@@ -39,6 +39,7 @@ ListenToEvent("KingpinLaunder", function(playerActor)
             if playerActor.ActionComponent.moneyAmount >= 1000 then
                 playerActor.ActionComponent.moneyAmount = playerActor.ActionComponent.moneyAmount - 1000
                 GetGameState().savedMoney = GetGameState().savedMoney + 1000
+                GetGameState():SpawnLuaPingSV("kingpinlaunder.png", pc:GetActorLocation())
             end
         end
     end
