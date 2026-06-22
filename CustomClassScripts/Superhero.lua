@@ -32,6 +32,7 @@ ListenToEvent("RoundTick", function()
         if ActorHasTag(player, "LaserBeam") then
             local startPos = player:GetActorLocation()
             local forward = player:GetActorForwardVector()
+            forward.Z = player.PitchSV/90
             local endPos = addPos(startPos, {X=forward.X*100000, Y=forward.Y*100000, Z=forward.Z*100000})
 
             local laser = LineMultiTrace(startPos, endPos, {player})

@@ -10,9 +10,11 @@ end
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
         for i, pc in ipairs(GetAllActorsOfClass("HackablePC")) do
-            if GetDistance(pc,playerActor) <= 1000 then
-                playerActor:startAbilityCooldown(30.0)
-                playerActor:AbilitySV()
+            if GetDistance(pc,playerActor) <= 500 then
+                if playerActor.CurrentZone == 1 then
+                    playerActor:startAbilityCooldown(30.0)
+                    playerActor:AbilitySV()
+                end
                 break
             end
         end
@@ -22,7 +24,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
         for i, pc in ipairs(GetAllActorsOfClass("HackablePC")) do
-            if GetDistance(pc,playerActor) <= 1000 then
+            if GetDistance(pc,playerActor) <= 500 and playerActor.CurrentZone == 1 then
                 if GetGameState().requiredSavedMoney > 1000 then
                     GetGameState().requiredSavedMoney = GetGameState().requiredSavedMoney - 1000
                     GetGameState().savedMoney = GetGameState().savedMoney + 1000
