@@ -1,0 +1,15 @@
+{
+    "IsRobber": true,
+    "DisplayName": "Mimic",
+    "ClothingRowName": "Customer_Hoodie_Black",
+    "AbilityName": "Fake Teammate",
+    "AbilityDescription": "Can copy the disguise and nametag of a cop for 20 seconds",
+    "AbilityIcon": "mimicfake.png",
+    "AbilityCooldown": 75.0,
+    "PassiveName": "Weaponary Mimic",
+    "PassiveDescription": "Mimics a cop's weapons after killing them",
+    "PassiveIcon": "mimicweapon.png",
+    "PrimaryWeapon": 4,
+    "SecondaryWeapon": 29,
+    "ClassCategory": 1
+}

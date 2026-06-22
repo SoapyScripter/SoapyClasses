@@ -101,8 +101,10 @@ ListenToEvent("PreReceiveDamage", function(target, source)
     end
 
 	if source then
-		if targetnpc then
-            GetGameState().savedMoney = GetGameState().savedMoney + 1000
+        if source.robber == false then
+            if targetnpc then
+                GetGameState().savedMoney = GetGameState().savedMoney + 1000
+            end
         end
 	end
 end)
