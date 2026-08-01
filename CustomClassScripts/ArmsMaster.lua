@@ -17,8 +17,8 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
 	if playerActor.CustomClassString == classname then
 		local maxkillstreakmoney = math.floor(playerActor.ActionComponent.MoneyAmount/5000)
-		if (tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney) > 16 then
-			maxkillstreakmoney = 16 - tonumber(playerActor:GetReplicatedVar("KillStreak"))
+		if (tonumber(playerActor:GetReplicatedVar("KillStreak")) + maxkillstreakmoney) > 10 then
+			maxkillstreakmoney = 10 - tonumber(playerActor:GetReplicatedVar("KillStreak"))
 		end
 		if maxkillstreakmoney >= 1 then
 			playerActor:startAbilityCooldown(15.0)
@@ -31,7 +31,7 @@ end)
 ListenToEvent("RoundTick", function()
 	for i, player in ipairs(GetPlayerChars()) do
 		if player.CustomClassString == classname then
-			player.ActionComponent:SlowDownTimeSV(1 + ((1/16) * tonumber(player:GetReplicatedVar("KillStreak"))))
+			player.ActionComponent:SlowDownTimeSV(1 + ((1/10) * tonumber(player:GetReplicatedVar("KillStreak"))))
 		end
 	end
 end)
@@ -40,11 +40,11 @@ ListenToEvent("PreReceiveDamage", function(target, source, damage)
 	if target.PlayersName and source.PlayersName then
 		if source then
 			if source.CustomClassString == classname then
-				target.HP = target.HP - ((damage/16) * tonumber(source:GetReplicatedVar("KillStreak")))
+				target.HP = target.HP - ((damage/10) * tonumber(source:GetReplicatedVar("KillStreak")))
 				if target.HP - damage <= 0 then
 					source:SetReplicatedVar("KillStreak", tostring(tonumber(source:GetReplicatedVar("KillStreak")) + 1))
-					if tonumber(source:GetReplicatedVar("KillStreak")) > 16 then
-						source:SetReplicatedVar("KillStreak", "16")
+					if tonumber(source:GetReplicatedVar("KillStreak")) > 10 then
+						source:SetReplicatedVar("KillStreak", "10")
 					end
 				end
 			end
