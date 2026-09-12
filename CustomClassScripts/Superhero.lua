@@ -19,7 +19,7 @@ end)
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
         AddActorTag(playerActor, "LaserBeam")
-        SetTimer(5.0, "SuperheroEndLaser", playerActor)
+        SetTimer(4.0, "SuperheroEndLaser", playerActor)
     end
 end)
 
