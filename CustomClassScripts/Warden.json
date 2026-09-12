@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Warden",
+    "ClothingRowName": "Cop_3",
+    "AbilityName": "Handcuffs",
+    "AbilityDescription": "For 10 seconds anybody he cuffs will go to jail, if its an NPC the warden goes to jail instead",
+    "AbilityIcon": "wardenhandcuffs.png",
+    "AbilityCooldown": 20.0,
+    "PassiveName": "Guards",
+    "PassiveDescription": "Spawns with 2 bot cops, and every successful arrest he gains another one",
+    "PassiveIcon": "wardenguards.png",
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 24,
+    "ClassCategory": 2
+}

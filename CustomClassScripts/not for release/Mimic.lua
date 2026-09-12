@@ -2,7 +2,7 @@ local classname = "Mimic"
 
 ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
     if playerActor.CustomClassString == classname then
-        playerActor:startAbilityCooldown(60.0)
+        playerActor:startAbilityCooldown(75.0)
 
         playerActor:AbilitySV()
     end
@@ -10,52 +10,18 @@ end)
 
 ListenToEvent("AbilitySV", function(playerActor)
     if playerActor.CustomClassString == classname then
-		local plrpos = playerActor:GetActorLocation()
-		for i=1,3 do
-			local closest = GetClosestActor("Ragdoll", plrpos)
-
-            if closest then
-                local closestpos = closest:GetActorLocation()
-
-                GetGameState():LuaDestroyActor(closest)
-
-                SpawnActor("PlayerAI_Rob",closestpos,nil,nil,"Necromanced")
-            end
-        end
+        playerActor.teamnameWidget:SetHiddenIngame(false)
     end
 end)
 
-ListenToEvent("RoundTick", function()
-    for i, npc in ipairs(GetAllActorsWithTag("Necromanced")) do
-        npc:SlowDownTimeSV(0.55)
-    end
-end)
-
-ListenToEvent("PreReceiveDamage", function(target, source, damage, damtype)
-    local targetnpc = true
-    
-    for i, player in ipairs(GetPlayerChars()) do
-        if player == target then
-            targetnpc = false
-        end
-    end
-
-	if source then
-		if source.CustomClassString == classname then
-            if targetnpc then
+ListenToEvent("PreReceiveDamage", function(target, source, damage)
+	if target.robber == false then
+		if source then
+			if source.CustomClassString == classname then
                 if target.HP - damage <= 0 then
-                    if damtype == 2 then
-                        if math.random(1,6) == 1 then
-                            local targetpos = target:GetActorLocation()
-    
-                            target.dontSpawnRagdoll = true
-                            GetGameState():LuaDestroyActor(target)
-    
-                            SpawnActor("PlayerAI_Rob",targetpos,nil,nil,"Necromanced")
-                        end
-                    end
+                    source.WeaponComponent:AddWepToSlotSV(target.WeaponComponent.LastEquippedSlot, target.WeaponComponent.CurrentWeaponID)
                 end
             end
-		end
-	end
+        end
+    end
 end)

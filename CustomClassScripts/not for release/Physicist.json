@@ -1,0 +1,15 @@
+{
+    "IsRobber": false,
+    "DisplayName": "Physicist",
+    "ClothingRowName": "Cook",
+    "AbilityName": "Wormhole Experiment",
+    "AbilityDescription": "Can create a wormhole that leads nearby a robber",
+    "AbilityIcon": "physicistwormhole.png",
+    "AbilityCooldown": 75.0,
+    "PassiveName": "Aligned Atoms",
+    "PassiveDescription": "Can walk though certain walls, valuts, and doors",
+    "PassiveIcon": "physicistatoms.png",
+    "PrimaryWeapon": 2,
+    "SecondaryWeapon": 18,
+    "ClassCategory": 2
+}

@@ -9,7 +9,7 @@
     "PassiveName": "Smoke Alarm",
     "PassiveDescription": "Gets pinged when any fire starts or a bomb is planted",
     "PassiveIcon": "pyrosmoke.png",
-    "PrimaryWeapon": 15,
+    "PrimaryWeapon": 39,
     "SecondaryWeapon": 12,
     "ClassCategory": 0,
     "July3rdUpdate": 39

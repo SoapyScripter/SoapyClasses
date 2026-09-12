@@ -18,7 +18,7 @@ end)
 
 ListenToEvent("MusicianKeen", function(playerActor)
 	for i, player in ipairs(GetPlayerChars()) do
-		if player.robber == true then
+		if player.robber == true and player.dead == false then
 			if math.random(1,15) == 1 then
 				GetGameState():SpawnLuaPingSV("musiciankeen.png", player:GetActorLocation())
 			end
