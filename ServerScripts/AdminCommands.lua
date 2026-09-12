@@ -1,4 +1,4 @@
-local admins = {"soapyscripter"}
+local admins = {"soapyscripter", "bearandbear222"}
 
 --[[ListenToEvent("AllMessage_OnClient", function(msg, teamID, playerActor)
     if teamID ~= 0 then
