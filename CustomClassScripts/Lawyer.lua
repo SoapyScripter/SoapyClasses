@@ -84,9 +84,9 @@ ListenToEvent("AbilitySV", function(playerActor)
 		end
         
         if closest and GetDistance(closest, playerActor) <= 500 then
-            for i=0, 2, 1 do
-                GetGameState():SpawnLuaPingSV("lawyerwitness.png", addPos(closest:GetActorLocation(), {X=math.random(-3000,3000), Y=math.random(0,3000), Z=math.random(-3000,3000)}))
-            end
+            GetGameState():SpawnLuaPingSV("lawyerwitness.png", GetAllActorsOfClass("AI_Customer")[math.random(1, #GetAllActorsOfClass("AI_Customer"))]:GetActorLocation())
+            GetGameState():SpawnLuaPingSV("lawyerwitness.png", GetAllActorsOfClass("AI_Employee")[math.random(1, #GetAllActorsOfClass("AI_Employee"))]:GetActorLocation())
+                        
             for i, player in ipairs(GetPlayerChars()) do
                 if player.robber == true then
                     GetGameState():SpawnLuaPingSV("lawyerwitness.png", player:GetActorLocation())
