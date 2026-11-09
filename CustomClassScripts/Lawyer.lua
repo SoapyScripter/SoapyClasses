@@ -57,7 +57,7 @@ ListenToEvent("AbilityKeyPressed_OnClient", function(playerActor)
 		end
         
         if closest and GetDistance(closest, playerActor) <= 500 then
-            playerActor:startAbilityCooldown(30.0)
+            playerActor:startAbilityCooldown(35.0)
 		
             playerActor:AbilitySV()
         end
@@ -113,7 +113,7 @@ ListenToEvent("PreReceiveDamage", function(target, source)
         if source.robber == false then
             if targetnpc then
                 if haslawyer then
-                    GetGameState().savedMoney = GetGameState().savedMoney + 2500
+                    GetGameState().savedMoney = GetGameState().savedMoney + 5000
                 end
             end
         end
