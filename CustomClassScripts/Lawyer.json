@@ -7,7 +7,7 @@
     "AbilityIcon": "lawyerwitness.png",
     "AbilityCooldown": 45.0,
     "PassiveName": "Plea Deal",
-    "PassiveDescription": "Cops can't be fired, instead they reward the robbers with $1k",
+    "PassiveDescription": "Cops can't be fired, instead they reward the robbers with $5k",
     "PassiveIcon": "lawyerplea.png",
     "PrimaryWeapon": 4,
     "SecondaryWeapon": 31,
